@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Status : MonoBehaviour
+public class Status : ScriptableObject
 {
     public string objName;
     public int setWeight;
-    public int keyNum;
+    public GameObject setObject;
 
     public GameObject preObj;
 
-    public Status(int num, string name, int pWeight)
+    public void Initialize(string pName, int pWeight, GameObject pObject)
     {
-        this.keyNum = num;
-        this.objName = name;
+        this.objName = pName;
         this.setWeight = pWeight;
+        this.setObject = pObject;
     }
 }
