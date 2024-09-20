@@ -8,7 +8,7 @@ public class WeightControll : MonoBehaviour
 {
     public static int leftSideWeight = 0;
     public static int rightSideWeight = 0;
-    public int weightDifference;
+    public static int weightDifference = 0;
 
     public Text rightWeightText;
     public Text leftWeightText;
@@ -21,20 +21,19 @@ public class WeightControll : MonoBehaviour
         {
             TextInput(rightWeightText, rightSideWeight);
             TextInput(leftWeightText, leftSideWeight);
+            CompareWeight();
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("RightWeight:" + rightSideWeight);
-        //Debug.Log(leftWeightText.text);
+
     }
 
     public void RightAddWeight(int i)
     {
         rightSideWeight += i;
-        //Debug.Log("Weight: " + rightSideWeight);
         TextInput(rightWeightText, rightSideWeight);
         rightWeightText.text = rightSideWeight.ToString();
     }
@@ -42,7 +41,6 @@ public class WeightControll : MonoBehaviour
     public void LeftAddWeight(int j)
     {
         leftSideWeight += j;
-        //Debug.Log("Weight: " + leftSideWeight);
         leftWeightText.text = leftSideWeight.ToString();
         TextInput(leftWeightText, leftSideWeight);
     }
@@ -50,7 +48,6 @@ public class WeightControll : MonoBehaviour
     void CompareWeight()
     {
         weightDifference = Mathf.Abs(rightSideWeight - leftSideWeight);
-        //Debug.Log("ç∑ÅF" + weightDifference);
     }
 
     void TextInput(Text pText, int pWeight)

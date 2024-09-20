@@ -12,7 +12,6 @@ public class WeightRegist : MonoBehaviour
     public List<Status> statusList;
     public List<GameObject> prefabList;
 
-    public int[] weightArray;
     private GameObject obj = null;
 
     public GameObject[] prefabArray;
@@ -38,7 +37,7 @@ public class WeightRegist : MonoBehaviour
 
     void Start()
     {
-        //ObjectAddList();
+        
     }
 
     // Update is called once per frame

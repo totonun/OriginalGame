@@ -27,7 +27,6 @@ public class ScrollMove : MonoBehaviour
     private bool hasScored = false; // 点数が一度だけ加算されたかを記録するフラグ
 
     RectTransform rectTransform;
-    CapsuleCollider2D collider2D;
 
     public string message;
 
@@ -96,7 +95,7 @@ public class ScrollMove : MonoBehaviour
 
             newObj.GetComponent<CapsuleCollider2D>().isTrigger = false;
             newObj.SetActive(true);
-        collider2D = newObj.gameObject.GetComponent<CapsuleCollider2D>();
+        CapsuleCollider2D collider2D = newObj.gameObject.GetComponent<CapsuleCollider2D>();
         collider2D.isTrigger = true;
     }
 

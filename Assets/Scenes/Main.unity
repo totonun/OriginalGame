@@ -1005,7 +1005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3d03149c343c346ba04a6077fe77cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 20
+  timer: 10
   timerText: {fileID: 891035825}
 --- !u!114 &923718299
 MonoBehaviour:
@@ -1080,12 +1080,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003ed89a372831940bd54fedf1413eef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 7380842583804001136, guid: d0397f07075d39443ac66b2991abf3e6, type: 3}
-  - {fileID: 8306093764573070425, guid: 72ab10b6a09dae247a6306ce028e34cf, type: 3}
-  weight: 0000000000000000
-  leftSideWeight: 0
-  rightSideWeight: 0
+  difference: 0
+  weightController: {fileID: 0}
+  rank: 
 --- !u!1 &1065634351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,7 +1412,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statusList: []
   prefabList: []
-  weightArray: 
   prefabArray: []
 --- !u!114 &1531168575 stripped
 MonoBehaviour:
