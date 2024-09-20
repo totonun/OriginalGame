@@ -81,6 +81,8 @@ public class ObjectPlacer : MonoBehaviour
             GameObject newObject = Instantiate(objectsToPlace[randomIndex]);
             newObject.name = objectsToPlace[randomIndex].name;
 
+            newObject.GetComponent<ScrollMove>().weight = weightController.GetComponent<WeightRegist>().weightReturn(newObject);
+
             texts[i].text = newObject.name;
             texts[i].rectTransform.position = new Vector3(positions[i].position.x, positions[i].transform.position.y + 40, 0);
 

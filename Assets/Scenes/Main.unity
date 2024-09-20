@@ -1380,7 +1380,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465d64d69c0d08d4b8aac5a3aba1a3a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weightDifference: 0
   rightWeightText: {fileID: 1531168575}
   leftWeightText: {fileID: 1142799127}
 --- !u!4 &1405213163

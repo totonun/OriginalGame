@@ -101,7 +101,6 @@ public class ScrollMove : MonoBehaviour
 
     private void OnTriggerEnter2D (Collider2D other)
     {
-        Debug.Log("Has: " + hasTriggered + "Crea: " + objectCreated);
         if (hasTriggered) return; // トリガーがすでに発生していれば何もしない
         if (objectCreated) return; // 既にオブジェクトが生成されていれば何もしない
         if (hasScored) return;
@@ -109,18 +108,18 @@ public class ScrollMove : MonoBehaviour
         isCollision = true;
         hasTriggered = true; // トリガーを一度だけ発生させる
 
+        int pWeight = this.gameObject.GetComponent<ScrollMove>().weight;
+
         if (other.gameObject.tag == "Right")
         {
             this.gameObject.tag = "Right";
-            weightController.GetComponent<WeightControll>().RightAddWeight(weight);
+            weightController.GetComponent<WeightControll>().RightAddWeight (pWeight);
         }
         else if (other.gameObject.tag == "Left")
         {
             this.gameObject.tag = "Left";
-            weightController.GetComponent<WeightControll>().LeftAddWeight(weight);
+            weightController.GetComponent<WeightControll>().LeftAddWeight(pWeight);
         }
-
-        //setOnCanvas();
 
         hasScored = true;
     }

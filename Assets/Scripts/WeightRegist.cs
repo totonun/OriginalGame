@@ -28,6 +28,21 @@ public class WeightRegist : MonoBehaviour
             CreateStatus("うま", 500000, obj),
             CreateStatus("牛乳(ビン)", 1000, obj),
             CreateStatus("ノートPC", 1800, obj),
+            CreateStatus("アルパカ", 60000, obj),
+            CreateStatus("アライグマ", 6000, obj),
+            CreateStatus("ホッキョクグマ(メス)", 200000, obj),
+            CreateStatus("エビフライ", 30, obj),
+            CreateStatus("ゴマフアザラシ", 100000, obj),
+            CreateStatus("ヘラジカ", 450000, obj),
+            CreateStatus("黒毛和牛", 600000, obj),
+            CreateStatus("レッサーパンダ", 45000, obj),
+            CreateStatus("モルモット", 10000, obj),
+            CreateStatus("モモンガ", 120, obj),
+            CreateStatus("もやし(1本)", 2, obj),
+            CreateStatus("パンダ", 120000, obj),
+            CreateStatus("プテラノドン", 15000, obj),
+            CreateStatus("タケノコ(小さめ)", 10000, obj),
+            CreateStatus("生まれたての子鹿", 50000, obj),
         };
         statusList.Sort((a, b) => string.Compare(a.objName, b.objName));
 
