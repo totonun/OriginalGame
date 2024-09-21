@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ScrollMove : MonoBehaviour
 {
-    bool moveTrigger;
-
     public GameObject rightScale;
     public GameObject leftScale;
     public GameObject weightController;
@@ -82,12 +80,14 @@ public class ScrollMove : MonoBehaviour
     {
             GameObject newObj = (GameObject)Instantiate(prefabObject, originalPos, Quaternion.identity);
             objectCreated = true; // オブジェクトが生成されたことを記録
-            objectPlacer.GetComponent<ObjectPlacer>().instantiateCount++;
+                                  //objectPlacer.GetComponent<ObjectPlacer>().instantiateCount++;
 
             newObj.name = prefabObject.name;
             newObj.GetComponent<ScrollMove>().weight = weightController.GetComponent<WeightRegist>().weightReturn(newObj);
 
-            RectTransform rectTransform = newObj.GetComponent<RectTransform>();
+        objectPlacer.GetComponent<ObjectCount>().PlacedObjectCount(newObj.name);
+
+        RectTransform rectTransform = newObj.GetComponent<RectTransform>();
             newObj.transform.SetParent(canvas.transform, false);
 
             // ローカル座標に originalPos を変換して設定

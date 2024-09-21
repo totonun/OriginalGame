@@ -9,11 +9,12 @@ public class TimeControll : MonoBehaviour
 {
     public float timer;
     public Text timerText;
+    private GameObject objectCounter;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        objectCounter = GameObject.Find("ObjectPlacer");
     }
 
     // Update is called once per frame
@@ -24,7 +25,14 @@ public class TimeControll : MonoBehaviour
         if (timer <= 0.0f)
         {
             timer = 0.0f;
-            SceneManager.LoadScene("GameFinish");
+            if (!objectCounter.GetComponent<ObjectCount>().checkUseObject())
+            {
+                SceneManager.LoadScene("GameOver");
+            }
+            else
+            {
+                SceneManager.LoadScene("GameFinish");
+            }
         }
     }
 }

@@ -1377,8 +1377,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d86401420a7be334dadf3f0c99798f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
+  levelWord: 
   playCountText: {fileID: 1498957195}
   levelText: {fileID: 818264124}
+  gameManager: {fileID: 0}
+  timer: 0
 --- !u!1 &1385526332
 GameObject:
   m_ObjectHideFlags: 0
@@ -1719,6 +1723,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2101109232}
   - component: {fileID: 2101109231}
+  - component: {fileID: 2101109233}
   m_Layer: 0
   m_Name: ObjectPlacer
   m_TagString: Untagged
@@ -1756,10 +1761,11 @@ MonoBehaviour:
   - {fileID: 394093058}
   - {fileID: 1154509641}
   - {fileID: 1585242213}
+  objectNames: []
   canvas: {fileID: 107354665}
   textPos: []
   instancedNumbers: 
-  instantiateCount: 0
+  count: 0
 --- !u!4 &2101109232
 Transform:
   m_ObjectHideFlags: 0
@@ -1775,6 +1781,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2101109233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101109230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 500537fbe031aac47a1c59585af48a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2130358816
 GameObject:
   m_ObjectHideFlags: 0

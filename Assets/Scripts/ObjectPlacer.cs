@@ -8,16 +8,26 @@ public class ObjectPlacer : MonoBehaviour
     public List<GameObject> objectsToPlace; // 配置するオブジェクトのリスト
     public Transform[] positions; // 配置する位置の配列
     public Text[] texts;
+    public string[] objectNames;
 
     public GameObject canvas;
     private GameObject weightController;
+    private GameObject gameManager;
 
     RectTransform rectTransform;
     public Vector3[] textPos;
 
     public int[] instancedNumbers;
 
-    public int instantiateCount;
+    //public int instantiateCount;
+
+    public int count;
+
+    private void Awake()
+    {
+        count = Mathf.Min(objectsToPlace.Count, positions.Length); // 小さい方の要素数をcountに代入する
+        objectNames = new string[count];
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -31,18 +41,23 @@ public class ObjectPlacer : MonoBehaviour
         int num = objectsToPlace.Count;
         instancedNumbers = new int[num];
 
-        instantiateCount = 0;
+        //instantiateCount = 0;
 
         rectTransform = GetComponent<RectTransform>();
 
+        /*
         textPos = new Vector3[texts.Length];
 
         for (int i = 0; i < texts.Length; i++)
         {
             textPos[i] = new Vector3(texts[i].rectTransform.position.x, texts[i].rectTransform.position.y, 0);
         }
+        */
 
         PlaceObjectsRandomly();
+
+        gameManager = GameObject.Find("GameManager");
+
     }
 
     // Update is called once per frame
@@ -54,7 +69,7 @@ public class ObjectPlacer : MonoBehaviour
     // オブジェクトをランダムに配置するメソッド
     void PlaceObjectsRandomly()
     {
-        int count = Mathf.Min(objectsToPlace.Count, positions.Length); // 小さい方の要素数をcountに代入する
+        //count = Mathf.Min(objectsToPlace.Count, positions.Length); // 小さい方の要素数をcountに代入する
 
         bool[] usedObjects = new bool[objectsToPlace.Count]; // オブジェクトが使用されたかを追跡する配列
 
@@ -80,6 +95,8 @@ public class ObjectPlacer : MonoBehaviour
             // 選ばれたオブジェクトをランダムな位置に配置する
             GameObject newObject = Instantiate(objectsToPlace[randomIndex]);
             newObject.name = objectsToPlace[randomIndex].name;
+            objectNames[i] = newObject.name;
+
 
             newObject.GetComponent<ScrollMove>().weight = weightController.GetComponent<WeightRegist>().weightReturn(newObject);
 

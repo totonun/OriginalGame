@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class WeightRegist : MonoBehaviour
 {
-    //public List<GameObject> gameObjects = new List<GameObject>(); // ŠÇ—‚·‚éGameObject‚ÌƒŠƒXƒg
-    //public List<int> weights = new List<int>();            // ‚»‚ê‚É‘Î‰‚·‚éd‚³‚ÌƒŠƒXƒg
-
     private Dictionary<GameObject, int> objectWeightDictionary;
 
     public List<Status> statusList;
@@ -53,7 +50,7 @@ public class WeightRegist : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(statusList);
+        
     }
 
     // Update is called once per frame
@@ -65,8 +62,6 @@ public class WeightRegist : MonoBehaviour
     //List‚É“o˜^
     void Regist()
     {
-
-        //List‚É“o˜^
         for (int i = 0; i < prefabArray.Length; i++)
         {
             prefabList.Add(prefabArray[i]);
