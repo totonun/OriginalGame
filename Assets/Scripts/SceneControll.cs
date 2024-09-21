@@ -18,15 +18,11 @@ public class SceneControll : MonoBehaviour
         {
             if(SceneManager.GetActiveScene().name == "Title")
             {
-                ToMain();
+                ToPrepareStart();
             }
             else if(SceneManager.GetActiveScene().name == "GameFinish")
             {
                 ToResult();
-            }
-            else if (SceneManager.GetActiveScene().name == "Result")
-            {
-                ToTitle();
             }
         }
     }
@@ -44,5 +40,10 @@ public class SceneControll : MonoBehaviour
     public void ToResult()
     {
         SceneManager.LoadScene("Result");
+    }
+
+    public void ToPrepareStart()
+    {
+        SceneManager.LoadScene("PrepareStart");
     }
 }

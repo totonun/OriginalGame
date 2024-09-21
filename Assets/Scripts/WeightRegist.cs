@@ -44,7 +44,8 @@ public class WeightRegist : MonoBehaviour
             CreateStatus("タケノコ(小さめ)", 10000, obj),
             CreateStatus("生まれたての子鹿", 50000, obj),
         };
-        statusList.Sort((a, b) => string.Compare(a.objName, b.objName));
+        //statusList.Sort((a, b) => string.Compare(a.objName, b.objName));
+        statusList.Sort((a, b) => b.setWeight - a.setWeight);
 
         prefabArray = Resources.LoadAll<GameObject>("Prefabs");
         Regist();
@@ -52,7 +53,7 @@ public class WeightRegist : MonoBehaviour
 
     void Start()
     {
-        
+        Debug.Log(statusList);
     }
 
     // Update is called once per frame

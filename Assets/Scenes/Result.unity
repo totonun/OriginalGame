@@ -1025,7 +1025,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465d64d69c0d08d4b8aac5a3aba1a3a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weightDifference: 0
   rightWeightText: {fileID: 1874196066}
   leftWeightText: {fileID: 1743095397}
 --- !u!114 &1007049730
@@ -1335,7 +1334,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1227719924}
         m_TargetAssemblyTypeName: SceneControll, Assembly-CSharp
-        m_MethodName: ToMain
+        m_MethodName: ToPrepareStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

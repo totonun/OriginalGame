@@ -13,8 +13,8 @@ public class DisplayResult : MonoBehaviour
     void Start()
     {
         weightController = GameObject.Find("WeightController");
-        differText.text = WeightControll.weightDifference.ToString();
-        rankText.text = weightController.GetComponent<CompareWeight>().rank;
+        differText.text = "ç∑ÅF " + WeightControll.weightDifference.ToString();
+        rankText.text = "ÉâÉìÉNÅF " + weightController.GetComponent<CompareWeight>().rank;
     }
 
     // Update is called once per frame
