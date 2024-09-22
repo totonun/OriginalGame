@@ -5,10 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class SceneControll : MonoBehaviour
 {
+
+    public float waitTime;
+    public bool sceneChangeTrigger;
     // Start is called before the first frame update
     void Start()
     {
-        
+        waitTime = 1.0f;
+        sceneChangeTrigger = false;
     }
 
     // Update is called once per frame
@@ -30,20 +34,61 @@ public class SceneControll : MonoBehaviour
     public void ToTitle()
     {
         SceneManager.LoadScene("Title");
+
+        /*
+        StartCoroutine(WaitAndExecute());
+        if (sceneChangeTrigger)
+        {
+            SceneManager.LoadScene("Title");
+        }
+        */
     }
 
     public void ToMain()
     {
         SceneManager.LoadScene("Main");
+
+        /*
+        StartCoroutine(WaitAndExecute());
+        if (sceneChangeTrigger)
+        {
+            SceneManager.LoadScene("Main");
+        }
+        */
     }
 
     public void ToResult()
     {
         SceneManager.LoadScene("Result");
+        /*
+        StartCoroutine(WaitAndExecute());
+        if (sceneChangeTrigger)
+        {
+            SceneManager.LoadScene("Result");
+        }
+        */
     }
 
     public void ToPrepareStart()
     {
         SceneManager.LoadScene("PrepareStart");
+
+        /*
+        StartCoroutine(WaitAndExecute());
+        if (sceneChangeTrigger)
+        {
+            SceneManager.LoadScene("PrepareStart");
+        }
+        */
+    }
+
+    // コルーチン関数
+    IEnumerator WaitAndExecute()
+    {
+        // 待つ
+        yield return new WaitForSeconds(waitTime);
+
+        // 経過後に呼ばれる処理
+        sceneChangeTrigger = true;
     }
 }

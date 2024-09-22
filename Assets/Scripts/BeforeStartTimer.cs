@@ -8,22 +8,42 @@ public class BeforeStartTimer : MonoBehaviour
 {
     private float timer;
     public Text timerText;
+    public bool timerStart;
 
     // Start is called before the first frame update
     void Start()
     {
-        timer = 5.0f;
+        timer = 5.5f;
+        StartCoroutine(WaitAndExecute());
+        timerStart = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
-        timerText.text = "Ç†Ç∆Å@" + timer.ToString("f0") + " ïb";
-        if (timer <= 0.0f)
+        if (timerStart)
         {
-            timer = 0.0f;
-            SceneManager.LoadScene("Main");
+            timer -= Time.deltaTime;
+            timerText.text = "Ç†Ç∆Å@" + timer.ToString("f0") + " ïb";
+            if (timer <= 0.6f)
+            {
+                timerText.text = "ÇÕÇ∂Ç‹ÇÈÇÊÅI";
+                if(timer <= 0.0f)
+                {
+                    timer = 0.0f;
+                    SceneManager.LoadScene("Main");
+                }
+            }
         }
     }
+
+    // ÉRÉãÅ[É`Éìä÷êî
+    IEnumerator WaitAndExecute()
+    {
+        // 1ïbë“Ç¬
+        yield return new WaitForSeconds(0.5f);
+
+        timerStart = true;
+    }
+
 }

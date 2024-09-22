@@ -80,7 +80,6 @@ public class ScrollMove : MonoBehaviour
     {
             GameObject newObj = (GameObject)Instantiate(prefabObject, originalPos, Quaternion.identity);
             objectCreated = true; // オブジェクトが生成されたことを記録
-                                  //objectPlacer.GetComponent<ObjectPlacer>().instantiateCount++;
 
             newObj.name = prefabObject.name;
             newObj.GetComponent<ScrollMove>().weight = weightController.GetComponent<WeightRegist>().weightReturn(newObj);

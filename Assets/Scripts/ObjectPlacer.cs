@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ObjectPlacer : MonoBehaviour
 {
     public List<GameObject> objectsToPlace; // 配置するオブジェクトのリスト
+    public GameObject[] objectToPlaceArray;
     public Transform[] positions; // 配置する位置の配列
     public Text[] texts;
     public string[] objectNames;
@@ -25,15 +26,37 @@ public class ObjectPlacer : MonoBehaviour
 
     private void Awake()
     {
+        weightController = GameObject.Find("WeightController");
+        int listSelect = Random.Range(1, 3);
+        Debug.Log("RandomSelect: " + listSelect);
+
+        switch (listSelect)
+        {
+            case 1:
+                objectsToPlace = weightController.GetComponent<WeightRegist>().prefabByLevel1;
+                break;
+            case 2:
+                objectsToPlace = weightController.GetComponent<WeightRegist>().prefabByLevel2;
+                break;
+            case 3:
+                objectsToPlace = weightController.GetComponent<WeightRegist>().prefabByLevel3;
+                break;
+        }
+        //objectsToPlace = weightController.GetComponent<WeightRegist>().prefabList;
+
         count = Mathf.Min(objectsToPlace.Count, positions.Length); // 小さい方の要素数をcountに代入する
         objectNames = new string[count];
+
+        objectToPlaceArray = new GameObject[objectsToPlace.Count];
+        for(int i = 0; i < objectToPlaceArray.Length; i++)
+        {
+            objectToPlaceArray[i] = objectsToPlace[i];
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        weightController = GameObject.Find("WeightController");
-        objectsToPlace = weightController.GetComponent<WeightRegist>().prefabList;
         // 配置場所のインデックスをランダムにシャッフル
         ShuffleArray(positions);
 
@@ -69,7 +92,6 @@ public class ObjectPlacer : MonoBehaviour
     // オブジェクトをランダムに配置するメソッド
     void PlaceObjectsRandomly()
     {
-        //count = Mathf.Min(objectsToPlace.Count, positions.Length); // 小さい方の要素数をcountに代入する
 
         bool[] usedObjects = new bool[objectsToPlace.Count]; // オブジェクトが使用されたかを追跡する配列
 

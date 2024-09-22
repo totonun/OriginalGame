@@ -9,6 +9,16 @@ public class WeightRegist : MonoBehaviour
     public List<Status> statusList;
     public List<GameObject> prefabList;
 
+    public List<Status> listByLevel1;
+    public List<Status> listByLevel2;
+    public List<Status> listByLevel3;
+
+    public List<GameObject> prefabByLevel1;
+    public List<GameObject> prefabByLevel2;
+    public List<GameObject> prefabByLevel3;
+
+    public int weightClass;
+
     private GameObject obj = null;
 
     public GameObject[] prefabArray;
@@ -44,8 +54,16 @@ public class WeightRegist : MonoBehaviour
         //statusList.Sort((a, b) => string.Compare(a.objName, b.objName));
         statusList.Sort((a, b) => b.setWeight - a.setWeight);
 
+        /*
+        for(int i = 0; i < statusList.Count; i++)
+        {
+            Debug.Log(statusList[i].setWeight);
+        }
+        */    
+
         prefabArray = Resources.LoadAll<GameObject>("Prefabs");
         Regist();
+        DevideByLevel();
     }
 
     void Start()
@@ -60,7 +78,7 @@ public class WeightRegist : MonoBehaviour
     }
     
     //List‚É“o˜^
-    void Regist()
+    private void Regist()
     {
         for (int i = 0; i < prefabArray.Length; i++)
         {
@@ -73,6 +91,36 @@ public class WeightRegist : MonoBehaviour
                 statusList[j].setObject = prefabList[j];
             }
         }
+
+    }
+
+    public void DevideByLevel()
+    {
+        for(int i = 0; i < statusList.Count; i++)
+        {
+            int weight = statusList[i].setWeight;
+            if(weight < 3000)
+            {
+                listByLevel1.Add(statusList[i]);
+                prefabByLevel1.Add(statusList[i].setObject);
+                weightClass = 1;
+            }
+            else if (weight <= 50000)
+            {
+                listByLevel2.Add(statusList[i]);
+                prefabByLevel2.Add(statusList[i].setObject);
+                weightClass = 2;
+            }
+            else
+            {
+                listByLevel3.Add(statusList[i]);
+                prefabByLevel3.Add(statusList[i].setObject);
+                weightClass = 3;
+            }
+        }
+        //Debug.Log("1: " + prefabByLevel1.Count);
+        //Debug.Log("2: " + prefabByLevel2.Count);
+        //Debug.Log("3: " + prefabByLevel3.Count);
 
     }
 
