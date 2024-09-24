@@ -868,6 +868,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2064034900}
   - component: {fileID: 2064034901}
+  - component: {fileID: 2064034902}
   m_Layer: 0
   m_Name: SoundController
   m_TagString: Untagged
@@ -986,6 +987,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2064034902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064034899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6d2bdf6f087841429ea2df37c8fbd64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class ObjectPlacer : MonoBehaviour
 {
     public List<GameObject> objectsToPlace; // 配置するオブジェクトのリスト
     public GameObject[] objectToPlaceArray;
+    public static int[] placedObjects; //配置されたオブジェクトの重さ
     public Transform[] positions; // 配置する位置の配列
     public Text[] texts;
     public string[] objectNames;
@@ -58,6 +59,8 @@ public class ObjectPlacer : MonoBehaviour
         {
             objectToPlaceArray[i] = objectsToPlace[i];
         }
+
+        placedObjects = new int[count];
     }
 
     // Start is called before the first frame update
@@ -125,10 +128,10 @@ public class ObjectPlacer : MonoBehaviour
             newObject.name = objectsToPlace[randomIndex].name;
             objectNames[i] = newObject.name;
 
-
             newObject.GetComponent<ScrollMove>().weight = weightController.GetComponent<WeightRegist>().weightReturn(newObject);
+            placedObjects[i] = newObject.GetComponent<ScrollMove>().weight;
 
-            texts[i].text = newObject.name;
+           texts[i].text = newObject.name;
             texts[i].rectTransform.position = new Vector3(positions[i].position.x, positions[i].transform.position.y + 60, 0);
 
             // オブジェクトを使用済みにマークする

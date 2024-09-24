@@ -22,6 +22,10 @@ public class SceneControll : MonoBehaviour
         {
             if(SceneManager.GetActiveScene().name == "Title")
             {
+                ToDescliption();
+            }
+            else if (SceneManager.GetActiveScene().name == "Descliption")
+            {
                 ToPrepareStart();
             }
             else if(SceneManager.GetActiveScene().name == "GameFinish")
@@ -80,6 +84,11 @@ public class SceneControll : MonoBehaviour
             SceneManager.LoadScene("PrepareStart");
         }
         */
+    }
+
+    public void ToDescliption()
+    {
+        SceneManager.LoadScene("Descliption");
     }
 
     // ÉRÉãÅ[É`Éìä÷êî

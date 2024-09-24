@@ -95,8 +95,7 @@ public class WeightRegist : MonoBehaviour
         }
         //Debug.Log("    ");
         */
-        
-        
+     
         prefabArray = Resources.LoadAll<GameObject>("Prefabs");
         Regist();
         DevideByLevel();
@@ -161,9 +160,11 @@ public class WeightRegist : MonoBehaviour
                 weightClass = 3;
             }
         }
+        /*
         Debug.Log("1: " + prefabByLevel1.Count);
         Debug.Log("2: " + prefabByLevel2.Count);
         Debug.Log("3: " + prefabByLevel3.Count);
+        */
 
     }
 

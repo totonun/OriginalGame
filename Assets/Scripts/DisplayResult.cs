@@ -14,7 +14,7 @@ public class DisplayResult : MonoBehaviour
     {
         weightController = GameObject.Find("WeightController");
         differText.text = "差： " + WeightControll.weightDifference.ToString();
-        rankText.text = "ランク： " + weightController.GetComponent<CompareWeight>().rank;
+        rankText.text = "ぴったんこ度： " + weightController.GetComponent<CompareWeight>().CalculatePercentage().ToString() + " %";
     }
 
     // Update is called once per frame
