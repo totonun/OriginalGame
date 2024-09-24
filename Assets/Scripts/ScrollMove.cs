@@ -134,14 +134,14 @@ public class ScrollMove : MonoBehaviour
         if (other.gameObject.tag == "Right")
         {
             this.gameObject.tag = "Right";
-            Debug.Log("Right");
+            //Debug.Log("Right");
             weightController.GetComponent<WeightControll>().RightAddWeight (pWeight);
             setOnCanvas();
         }
         else if (other.gameObject.tag == "Left")
         {
             this.gameObject.tag = "Left";
-            Debug.Log("Left");
+            //Debug.Log("Left");
             weightController.GetComponent<WeightControll>().LeftAddWeight(pWeight);
             setOnCanvas();
         }

@@ -28,7 +28,7 @@ public class WeightControll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        CompareWeight();
     }
 
     public void RightAddWeight(int i)

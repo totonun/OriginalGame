@@ -30,7 +30,7 @@ public class ObjectPlacer : MonoBehaviour
     {
         weightController = GameObject.Find("WeightController");
         int listSelect = Random.Range(1, 4);
-        Debug.Log("RandomSelect: " + listSelect);
+        //Debug.Log("RandomSelect: " + listSelect);
 
         switch (listSelect)
         {
@@ -63,11 +63,7 @@ public class ObjectPlacer : MonoBehaviour
 
         placedObjectsWeight = new int[count];
         placedObjects = new GameObject[count];
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
         // 配置場所のインデックスをランダムにシャッフル
         ShuffleArray(positions);
 
@@ -75,20 +71,14 @@ public class ObjectPlacer : MonoBehaviour
         int num = objectsToPlace.Count;
         instancedNumbers = new int[num];
 
-        //instantiateCount = 0;
-
         rectTransform = GetComponent<RectTransform>();
 
-        /*
-        textPos = new Vector3[texts.Length];
-
-        for (int i = 0; i < texts.Length; i++)
-        {
-            textPos[i] = new Vector3(texts[i].rectTransform.position.x, texts[i].rectTransform.position.y, 0);
-        }
-        */
-
         PlaceObjectsRandomly();
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
 
         gameManager = GameObject.Find("GameManager");
 

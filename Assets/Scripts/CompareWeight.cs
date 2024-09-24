@@ -10,18 +10,23 @@ public class CompareWeight : MonoBehaviour
    // public int leftWeight;
 
     public GameObject weightController;
+    public GameObject objectPlacer;
 
     public string rank;
 
     //public int correction;
 
+    public int maxWeight;
+
     // Start is called before the first frame update
     void Start()
     {
         weightController = GameObject.Find("WeightController");
-        difference = WeightControll.weightDifference;
+        //objectPlacer = GameObject.Find("ObjectPlacer");
         //rightWeight = WeightControll.rightSideWeight;
         //leftWeight = WeightControll.leftSideWeight;
+        maxWeight = 0;
+        setMaxWeight();
 
         /*
         Ranking(difference);
@@ -55,20 +60,38 @@ public class CompareWeight : MonoBehaviour
     // àÍívìxçáÇ¢ÇïSï™ó¶Ç≈åvéZÇ∑ÇÈ
     public int CalculatePercentage()
     {
-        int maxWeight = 0;
-        for(int i = 0; i < ObjectPlacer.placedObjectsWeight.Length; i++)
-        {
-            if(ObjectPlacer.placedObjectsWeight[i] > maxWeight)
-            {
-                maxWeight = ObjectPlacer.placedObjectsWeight[i];
-            }
-        }
-
         // àÍívìxçáÇ¢ÇåvéZ
-        float matchPercentage = 100 - (((float)difference / maxWeight*2) * 70);
+        float matchPercentage = 100 - (((float)difference / maxWeight *2) * 70);
 
         // 0%à»â∫Ç…ÇÕÇ»ÇÁÇ»Ç¢ÇÊÇ§Ç…í≤êÆ
         return (int)Mathf.Max(matchPercentage, 0);
+    }
+
+    private void setMaxWeight()
+    {
+        for (int i = 0; i < ObjectPlacer.placedObjectsWeight.Length; i++)
+        {
+            //Debug.Log(ObjectPlacer.placedObjectsWeight[i]);
+            if (ObjectPlacer.placedObjectsWeight[i] > maxWeight)
+            {
+                maxWeight = ObjectPlacer.placedObjectsWeight[i];
+                //Debug.Log("Added");
+            }
+        }
+    }
+
+    public bool tooHeavyTrigger()
+    {
+        difference = WeightControll.weightDifference;
+        //Debug.Log(difference + " : " + maxWeight);
+        if (difference > maxWeight * 2)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     /*
