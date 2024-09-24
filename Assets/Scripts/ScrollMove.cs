@@ -25,14 +25,27 @@ public class ScrollMove : MonoBehaviour
     private bool hasScored = false; // 点数が一度だけ加算されたかを記録するフラグ
 
     RectTransform rectTransform;
+    Rigidbody2D rb;
+    CapsuleCollider2D collider;
 
     public string message;
+
+    public Collider2D targetCollider; // 重なりをチェックする対象のコライダー
+    //public float overlapThreshold = -5.0f; // この距離以上重なったらY軸を固定する
+
+    public bool setCanvas;
+    public bool freezeTrigger;
 
 
     // Start is called before the first frame update
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
+        rb = GetComponent<Rigidbody2D>();
+
+        collider = this.gameObject.GetComponent<CapsuleCollider2D>();
+        collider.isTrigger = false;
+
         originalPos = new Vector3(this.rectTransform.position.x, this.rectTransform.position.y, this.rectTransform.position.z);
 
         weightController = GameObject.Find("WeightController");
@@ -42,6 +55,10 @@ public class ScrollMove : MonoBehaviour
         objectPlacer = GameObject.Find("ObjectPlacer");
 
         prefabObject = (GameObject)Resources.Load("Prefabs/" + this.gameObject.name);
+
+        rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+
+        freezeTrigger = false;
     }
 
     // Update is called once per frame
@@ -51,12 +68,15 @@ public class ScrollMove : MonoBehaviour
         {
             MouseFollow();
         }
+        
     }
 
     public void OnMouseDown()
     {
         // マウスボタンが押された時にドラッグ開始
         isDragging = true;
+        rb.constraints = RigidbodyConstraints2D.None;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     public void OnMouseUp()
@@ -78,11 +98,11 @@ public class ScrollMove : MonoBehaviour
 
     private void setOnCanvas()
     {
-            GameObject newObj = (GameObject)Instantiate(prefabObject, originalPos, Quaternion.identity);
-            objectCreated = true; // オブジェクトが生成されたことを記録
+        GameObject newObj = (GameObject)Instantiate(prefabObject, originalPos, Quaternion.identity);
+        objectCreated = true; // オブジェクトが生成されたことを記録
 
-            newObj.name = prefabObject.name;
-            newObj.GetComponent<ScrollMove>().weight = weightController.GetComponent<WeightRegist>().weightReturn(newObj);
+         newObj.name = prefabObject.name;
+         newObj.GetComponent<ScrollMove>().weight = weightController.GetComponent<WeightRegist>().weightReturn(newObj);
 
         objectPlacer.GetComponent<ObjectCount>().PlacedObjectCount(newObj.name);
 
@@ -94,8 +114,10 @@ public class ScrollMove : MonoBehaviour
 
             newObj.GetComponent<CapsuleCollider2D>().isTrigger = false;
             newObj.SetActive(true);
+
         CapsuleCollider2D collider2D = newObj.gameObject.GetComponent<CapsuleCollider2D>();
-        collider2D.isTrigger = true;
+        collider2D.isTrigger = false;
+        collider.isTrigger = true;
     }
 
     private void OnTriggerEnter2D (Collider2D other)
@@ -112,12 +134,16 @@ public class ScrollMove : MonoBehaviour
         if (other.gameObject.tag == "Right")
         {
             this.gameObject.tag = "Right";
+            Debug.Log("Right");
             weightController.GetComponent<WeightControll>().RightAddWeight (pWeight);
+            setOnCanvas();
         }
         else if (other.gameObject.tag == "Left")
         {
             this.gameObject.tag = "Left";
+            Debug.Log("Left");
             weightController.GetComponent<WeightControll>().LeftAddWeight(pWeight);
+            setOnCanvas();
         }
 
         hasScored = true;
@@ -126,7 +152,7 @@ public class ScrollMove : MonoBehaviour
     private IEnumerator CheckCollisionAfterDelay()
     {
         // 0.1秒待ってから処理を行う
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.8f);
 
         // もし衝突していなければ元の位置に戻す
         if (!isCollision)
@@ -135,8 +161,10 @@ public class ScrollMove : MonoBehaviour
         }
         else
         {
-            setOnCanvas();
+            
         }
+
+        rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
 
         // フラグをリセット
         isCollision = false;

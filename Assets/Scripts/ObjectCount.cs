@@ -8,6 +8,8 @@ public class ObjectCount : MonoBehaviour
     private string[] objectNames;
     //public GameObject weightRegister;
     private GameObject objectPlacer;
+    //private GameObject[] placedObjects;
+    private GameObject[] objectsOnCanvas;
 
     private int count;
 
@@ -21,6 +23,7 @@ public class ObjectCount : MonoBehaviour
         count = objectPlacer.GetComponent<ObjectPlacer>().count;
         objectCountArray = new int[count];
         objectNames = this.gameObject.GetComponent<ObjectPlacer>().objectNames;
+        //placedObjects = objectPlacer.GetComponent<ObjectPlacer>().placedObjects;
     }
 
     // Update is called once per frame
@@ -37,6 +40,21 @@ public class ObjectCount : MonoBehaviour
             {
                 objectCountArray[i]++;
             }
+        }
+    }
+
+    public bool differenceTrigger()
+    {
+        GameObject[] rightSideObjects = GameObject.FindGameObjectsWithTag("Right");
+        GameObject[] leftSideObjects = GameObject.FindGameObjectsWithTag("Left");
+        int difference = Mathf.Abs(rightSideObjects.Length - leftSideObjects.Length);
+        if(difference != 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 

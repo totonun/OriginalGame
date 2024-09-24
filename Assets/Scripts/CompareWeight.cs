@@ -56,11 +56,11 @@ public class CompareWeight : MonoBehaviour
     public int CalculatePercentage()
     {
         int maxWeight = 0;
-        for(int i = 0; i < ObjectPlacer.placedObjects.Length; i++)
+        for(int i = 0; i < ObjectPlacer.placedObjectsWeight.Length; i++)
         {
-            if(ObjectPlacer.placedObjects[i] > maxWeight)
+            if(ObjectPlacer.placedObjectsWeight[i] > maxWeight)
             {
-                maxWeight = ObjectPlacer.placedObjects[i];
+                maxWeight = ObjectPlacer.placedObjectsWeight[i];
             }
         }
 
