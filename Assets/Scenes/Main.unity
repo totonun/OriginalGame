@@ -1512,9 +1512,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statusList: []
   prefabList: []
-  listByLevel1: []
-  listByLevel2: []
-  listByLevel3: []
   prefabByLevel1: []
   prefabByLevel2: []
   prefabByLevel3: []
