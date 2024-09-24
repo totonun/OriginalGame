@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeightRegist : MonoBehaviour
 {
-    private Dictionary<GameObject, int> objectWeightDictionary;
+    //private Dictionary<GameObject, int> objectWeightDictionary;
 
     public List<Status> statusList;
     public List<GameObject> prefabList;
@@ -51,15 +51,18 @@ public class WeightRegist : MonoBehaviour
             CreateStatus("ƒ^ƒPƒmƒR(¬‚³‚ß)", 10000, obj),
             CreateStatus("¶‚Ü‚ê‚½‚Ä‚ÌŽqŽ­", 50000, obj),
         };
-        //statusList.Sort((a, b) => string.Compare(a.objName, b.objName));
-        statusList.Sort((a, b) => b.setWeight - a.setWeight);
+        statusList.Sort((a, b) => string.Compare(a.objName, b.objName));
 
+        //d‚³~‡‚É•À‚×‚é
+        //statusList.Sort((a, b) => b.setWeight - a.setWeight);
+        
         /*
         for(int i = 0; i < statusList.Count; i++)
         {
-            Debug.Log(statusList[i].setWeight);
+            Debug.Log(statusList[i].setWeight + statusList[i].objName);
         }
-        */    
+        Debug.Log("    ");
+        */
 
         prefabArray = Resources.LoadAll<GameObject>("Prefabs");
         Regist();
@@ -80,15 +83,20 @@ public class WeightRegist : MonoBehaviour
     //List‚É“o˜^
     private void Regist()
     {
+        
         for (int i = 0; i < prefabArray.Length; i++)
         {
             prefabList.Add(prefabArray[i]);
         }
+        //prefabList.Sort((a, b) => b.GetComponent<ScrollMove>().weight - a.GetComponent<ScrollMove>().weight);
+        prefabList.Sort((a, b) => string.Compare(a.name, b.name));
+
         if (prefabList.Count == statusList.Count)
         {
             for (int j = 0; j < statusList.Count; j++)
             {
                 statusList[j].setObject = prefabList[j];
+                //Debug.Log(statusList[j].objName + " : " + prefabList[j].name);
             }
         }
 

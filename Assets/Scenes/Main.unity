@@ -2065,6 +2065,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftScale
       objectReference: {fileID: 0}
+    - target: {fileID: 8376893012953019071, guid: c557f17ee6fb56545a9acba45f9c7bcf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2078,6 +2082,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 107354669}
     m_Modifications:
+    - target: {fileID: 5277877305826284154, guid: edc4436862bb6ed41a4ffa2b2c59a227, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5836119898707239413, guid: edc4436862bb6ed41a4ffa2b2c59a227, type: 3}
       propertyPath: m_Name
       value: RightScale

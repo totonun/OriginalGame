@@ -27,13 +27,19 @@ public class ObjectPlacer : MonoBehaviour
     private void Awake()
     {
         weightController = GameObject.Find("WeightController");
-        int listSelect = Random.Range(1, 3);
+        int listSelect = Random.Range(1, 4);
         Debug.Log("RandomSelect: " + listSelect);
 
         switch (listSelect)
         {
             case 1:
                 objectsToPlace = weightController.GetComponent<WeightRegist>().prefabByLevel1;
+                /*
+                for(int i = 0; i < objectsToPlace.Count; i++)
+                {
+                    Debug.Log(objectsToPlace[i].name);
+                }
+                */
                 break;
             case 2:
                 objectsToPlace = weightController.GetComponent<WeightRegist>().prefabByLevel2;
@@ -123,7 +129,7 @@ public class ObjectPlacer : MonoBehaviour
             newObject.GetComponent<ScrollMove>().weight = weightController.GetComponent<WeightRegist>().weightReturn(newObject);
 
             texts[i].text = newObject.name;
-            texts[i].rectTransform.position = new Vector3(positions[i].position.x, positions[i].transform.position.y + 40, 0);
+            texts[i].rectTransform.position = new Vector3(positions[i].position.x, positions[i].transform.position.y + 60, 0);
 
             // オブジェクトを使用済みにマークする
             usedObjects[randomIndex] = true;
