@@ -13,35 +13,62 @@ public class WeightControll : MonoBehaviour
     public Text rightWeightText;
     public Text leftWeightText;
 
+    private bool compareTrigger;
+    private bool isTextInput;
+
+    public GameObject itemController;
+
 
     // Start is called before the first frame update
     void Start()
-    {
-        if(SceneManager.GetActiveScene().name == "Result")
+    {      
+        if(SceneManager.GetActiveScene().name == "Result" || SceneManager.GetActiveScene().name == "Main")
         {
             TextInput(rightWeightText, rightSideWeight);
             TextInput(leftWeightText, leftSideWeight);
             CompareWeight();
         }
+        isTextInput = false;
+        compareTrigger = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        CompareWeight();
+        if (compareTrigger)
+        {
+            CompareWeight();
+            compareTrigger = false;
+        }
+        else if (itemController.GetComponent<ItemControll>().itemUsed)
+        {
+            BothTextInput();
+        }
+    }
+
+    private void BothTextInput()
+    {
+        if (!isTextInput)
+        {
+            TextInput(rightWeightText, rightSideWeight);
+            TextInput(leftWeightText, leftSideWeight);
+            isTextInput = true;
+        }
     }
 
     public void RightAddWeight(int i)
     {
         rightSideWeight += i;
         TextInput(rightWeightText, rightSideWeight);
-        rightWeightText.text = rightSideWeight.ToString();
+        compareTrigger = true;
+        //rightWeightText.text = rightSideWeight.ToString();
     }
 
     public void LeftAddWeight(int j)
     {
         leftSideWeight += j;
-        leftWeightText.text = leftSideWeight.ToString();
+        //leftWeightText.text = leftSideWeight.ToString();
+        compareTrigger = true;
         TextInput(leftWeightText, leftSideWeight);
     }
 

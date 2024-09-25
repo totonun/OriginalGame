@@ -8,29 +8,61 @@ public class ScaleController : MonoBehaviour
     public GameObject leftScale;
     public GameObject weightController;
 
+    public bool isGravity;
+
+    public GameObject gameManager;
+
     Rigidbody2D rb;
+    SceneControll sc;
+    AudioSource audioSource;
+
+    public bool isFallSound;
+    public bool scaleFallTrigger;
+    public bool isRbSet;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        isGravity = false;
+        gameManager = this.gameObject;
+        sc = gameManager.GetComponent<SceneControll>();
+        audioSource = gameManager.GetComponent<AudioSource>();
+        isFallSound = false;
+        scaleFallTrigger = false;
+        isRbSet = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(gameObject.GetComponent<CompareWeight>().tooHeavyTrigger());
-        if (gameObject.GetComponent<CompareWeight>().tooHeavyTrigger())
+        if (!isRbSet)
         {
-            Debug.Log("Trigger");
-            if(WeightControll.rightSideWeight > WeightControll.leftSideWeight)
+            if (gameObject.GetComponent<CompareWeight>().tooHeavyTrigger())
             {
-                addGravity(rightScale);
-                Debug.Log("Added");
+                if (WeightControll.rightSideWeight > WeightControll.leftSideWeight)
+                {
+                    addGravity(rightScale);
+                }
+                else
+                {
+                    addGravity(leftScale);
+                }
+            }
+        }
+        else
+        {
+            if (isGravity)
+            {
+                sc.GameOver();
+                Debug.Log("GameOver");
+            }
+            else if (WeightControll.rightSideWeight > WeightControll.leftSideWeight)
+            {
+                addForce(rightScale);
             }
             else
             {
-                addGravity(leftScale);
+                addForce(leftScale);
             }
         }
     }
@@ -47,6 +79,17 @@ public class ScaleController : MonoBehaviour
         rb = pObject.GetComponent<Rigidbody2D>();
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        isRbSet = true;
+        audioSource.Play();
+    }
+
+    private void addForce(GameObject pObject)
+    {
+        rb = pObject.GetComponent<Rigidbody2D>();
         rb.AddForce(new Vector2(0, -1), ForceMode2D.Impulse);
+        if (pObject.transform.position.y < -220f)
+        {
+            isGravity = true;
+        }
     }
 }

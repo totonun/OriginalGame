@@ -8,9 +8,13 @@ public class SceneControll : MonoBehaviour
 
     public float waitTime;
     public bool sceneChangeTrigger;
+
+    public GameObject gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = this.gameObject;
         waitTime = 1.0f;
         sceneChangeTrigger = false;
     }
@@ -38,57 +42,36 @@ public class SceneControll : MonoBehaviour
     public void ToTitle()
     {
         SceneManager.LoadScene("Title");
-
-        /*
-        StartCoroutine(WaitAndExecute());
-        if (sceneChangeTrigger)
-        {
-            SceneManager.LoadScene("Title");
-        }
-        */
     }
 
     public void ToMain()
     {
         SceneManager.LoadScene("Main");
-
-        /*
-        StartCoroutine(WaitAndExecute());
-        if (sceneChangeTrigger)
-        {
-            SceneManager.LoadScene("Main");
-        }
-        */
     }
 
     public void ToResult()
     {
         SceneManager.LoadScene("Result");
-        /*
-        StartCoroutine(WaitAndExecute());
-        if (sceneChangeTrigger)
-        {
-            SceneManager.LoadScene("Result");
-        }
-        */
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 
     public void ToPrepareStart()
     {
         SceneManager.LoadScene("PrepareStart");
-
-        /*
-        StartCoroutine(WaitAndExecute());
-        if (sceneChangeTrigger)
-        {
-            SceneManager.LoadScene("PrepareStart");
-        }
-        */
     }
 
     public void ToDescliption()
     {
         SceneManager.LoadScene("Descliption");
+    }
+
+    public void ToGameFinish()
+    {
+        SceneManager.LoadScene("GameFinish");
     }
 
     // ÉRÉãÅ[É`Éìä÷êî

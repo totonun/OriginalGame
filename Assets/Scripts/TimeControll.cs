@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Text))]
 public class TimeControll : MonoBehaviour
@@ -11,12 +10,17 @@ public class TimeControll : MonoBehaviour
     public Text timerText;
     private GameObject objectPlacer;
     private ObjectCount objectCount;
+    SceneControll sc;
+
+    public GameObject gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         objectPlacer = GameObject.Find("ObjectPlacer");
         objectCount = objectPlacer.GetComponent<ObjectCount>();
+        gameManager = this.gameObject;
+        sc = gameManager.GetComponent<SceneControll>();
     }
 
     // Update is called once per frame
@@ -24,16 +28,17 @@ public class TimeControll : MonoBehaviour
     {
         timer -= Time.deltaTime;
         timerText.text = "‚ ‚Æ" + timer.ToString("f0") + "•b";
+
         if (timer <= 0.0f)
         {
             timer = 0.0f;
             if (!objectCount.checkUseObject() || !objectCount.differenceTrigger())
             {
-                SceneManager.LoadScene("GameOver");
+                sc.GameOver();
             }
             else
             {
-                SceneManager.LoadScene("GameFinish");
+                sc.ToGameFinish();
             }
         }
     }
