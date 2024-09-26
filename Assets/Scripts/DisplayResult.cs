@@ -36,13 +36,10 @@ public class DisplayResult : MonoBehaviour
         {
             unit = " g";
         }
-        //difference = Mathf.Abs(rightWeight - leftWeight);
 
         rightText.text = "右: " + rightWeight.ToString() + unit ;
         leftText.text = "左: " + leftWeight.ToString() + unit;
 
-
-        //differText.text = "差： " + difference.ToString("N2") + unit;
         rankText.text = "ぴったんこ度： " + CompareWeight.persentage.ToString() + " %";
 
         if(CompareWeight.persentage > InputMaxScore.maxPersentage)

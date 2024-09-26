@@ -629,7 +629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -649,7 +649,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u753B\u9762\u3092 \u30AF\u30EA\u30C3\u30AF \u3057\u3066\u7D50\u679C\u3092\u898B\u308B\n"
+  m_Text: "\u753B\u9762\u3092 \u30AF\u30EA\u30C3\u30AF \u3057\u3066 \u7D50\u679C\u3092\u898B\u308B\n"
 --- !u!222 &1249708745
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -6,9 +6,7 @@ public class ObjectCount : MonoBehaviour
 {
     private int[] objectCountArray;
     private string[] objectNames;
-    //public GameObject weightRegister;
     private GameObject objectPlacer;
-    //private GameObject[] placedObjects;
     private GameObject[] objectsOnCanvas;
 
     private int count;
@@ -16,15 +14,10 @@ public class ObjectCount : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //weightRegister = GameObject.Find("WeightRegister");
-        //int n= weightRegister.GetComponent<WeightRegist>().statusList.Count;
-
         objectPlacer = GameObject.Find("ObjectPlacer");
         count = objectPlacer.GetComponent<ObjectPlacer>().count;
         objectCountArray = new int[count];
-        //objectNames = this.gameObject.GetComponent<ObjectPlacer>().objectNames;
         objectNames = ObjectPlacer.objectNames;
-        //placedObjects = objectPlacer.GetComponent<ObjectPlacer>().placedObjects;
     }
 
     // Update is called once per frame

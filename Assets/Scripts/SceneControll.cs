@@ -48,6 +48,7 @@ public class SceneControll : MonoBehaviour
     public void ToTitle()
     {
         SceneManager.LoadScene("Title");
+        ReleaseItem.isItem = false;
     }
 
     public void ToMain()
@@ -63,14 +64,15 @@ public class SceneControll : MonoBehaviour
     public void GameOver()
     {
         SceneManager.LoadScene("GameOver");
-        WeightControll.leftSideWeight = 0;
-        WeightControll.rightSideWeight = 0;
         DifficultySet.playCount--;
     }
 
     public void ToPrepareStart()
     {
         SceneManager.LoadScene("PrepareStart");
+        WeightControll.leftSideWeight = 0;
+        WeightControll.rightSideWeight = 0;
+        WeightControll.weightDifference = 0;
     }
 
     public void ToDescliption()

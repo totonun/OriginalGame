@@ -6,17 +6,12 @@ using UnityEngine.SceneManagement;
 public class CompareWeight : MonoBehaviour
 {
     public int difference;
-    //public int rightWeight;
-   // public int leftWeight;
-
     public GameObject weightController;
     public GameObject objectPlacer;
 
     public static int persentage;
 
     public string rank;
-
-    //public int correction;
 
     public static int maxWeight;
 
@@ -25,8 +20,6 @@ public class CompareWeight : MonoBehaviour
     {
         weightController = GameObject.Find("WeightController");
         objectPlacer = GameObject.Find("ObjectPlacer");
-        //rightWeight = WeightControll.rightSideWeight;
-        //leftWeight = WeightControll.leftSideWeight;
         maxWeight = 0;
         setMaxWeight();
         persentage = 0;
@@ -41,17 +34,6 @@ public class CompareWeight : MonoBehaviour
         }
     }
 
-    /*
-       public int CalculatePercentage()
-       {
-           // àÍívìxçáÇ¢ÇåvéZ
-           float matchPercentage = 100 - (((float)difference / maxWeight *4) * 60);
-           Debug.Log(((float)difference / maxWeight * 7) * 60);
-
-           // 0%à»â∫Ç…ÇÕÇ»ÇÁÇ»Ç¢ÇÊÇ§Ç…í≤êÆ
-           return (int)Mathf.Max(matchPercentage, 0);
-       }
-    */
     public int CalculatePercentage()
     {
         // ïΩãœílÇäÓèÄÇ…Ç∑ÇÈ
@@ -73,11 +55,9 @@ public class CompareWeight : MonoBehaviour
     {
         for (int i = 0; i < ObjectPlacer.placedObjectsWeight.Length; i++)
         {
-            //Debug.Log(ObjectPlacer.placedObjectsWeight[i]);
             if (ObjectPlacer.placedObjectsWeight[i] > maxWeight)
             {
                 maxWeight = ObjectPlacer.placedObjectsWeight[i];
-                //Debug.Log("Added");
             }
         }
     }
@@ -96,8 +76,7 @@ public class CompareWeight : MonoBehaviour
     public bool tooHeavyTrigger()
     {
         difference = WeightControll.weightDifference;
-        //Debug.Log(difference + " : " + maxWeight);
-        if (difference > maxWeight * 2)
+        if (difference != 0 && difference > maxWeight * 2)
         {
             return true;
         }

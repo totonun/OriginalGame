@@ -20,7 +20,6 @@ public class ScaleController : MonoBehaviour
     AudioSource audioSource;
 
     public bool isFallSound;
-    public bool scaleFallTrigger;
     public bool isRbSet;
     private bool moveTrigger;
 
@@ -37,7 +36,7 @@ public class ScaleController : MonoBehaviour
         sc = gameManager.GetComponent<SceneControll>();
         audioSource = gameManager.GetComponent<AudioSource>();
         isFallSound = false;
-        scaleFallTrigger = false;
+        //scaleFallTrigger = false;
         isRbSet = false;
         isMoveFinish = false;
         moveTrigger = false;

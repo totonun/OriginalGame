@@ -1026,7 +1026,6 @@ MonoBehaviour:
   isGravity: 0
   gameManager: {fileID: 0}
   isFallSound: 0
-  scaleFallTrigger: 0
   isRbSet: 0
   clickText: {fileID: 0}
 --- !u!114 &923718304
@@ -11966,10 +11965,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 107354669}
     m_Modifications:
-    - target: {fileID: 1307897020125584972, guid: 6c451708849eaad4d88a614110e46299, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3380798074777383677, guid: 6c451708849eaad4d88a614110e46299, type: 3}
       propertyPath: m_LocalPosition.x
       value: 36.153275
@@ -12008,10 +12003,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3380798074777383677, guid: 6c451708849eaad4d88a614110e46299, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4530226702742544726, guid: 6c451708849eaad4d88a614110e46299, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7409511152848653714, guid: 6c451708849eaad4d88a614110e46299, type: 3}

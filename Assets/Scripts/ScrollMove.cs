@@ -22,7 +22,7 @@ public class ScrollMove : MonoBehaviour
     private bool isCollision = false;
     private bool hasTriggered = false; 
     private bool objectCreated = false; 
-    private bool hasScored = false; 
+    private bool hasScored = false;
 
     RectTransform rectTransform;
     Rigidbody2D rb;
@@ -63,6 +63,8 @@ public class ScrollMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (objectCreated) return;
+
         if (isDragging)
         {
             MouseFollow();
@@ -80,7 +82,6 @@ public class ScrollMove : MonoBehaviour
     public void OnMouseUp()
     {
         isDragging = false;
-
         StartCoroutine(CheckCollisionAfterDelay());
     }
 

@@ -33,7 +33,7 @@ public class ReleaseItem : MonoBehaviour
         }
 
         randomNum = Random.Range(0, randomRangeNum);
-        Debug.Log("RandomNum: " + randomNum + "RandomRange" + randomRangeNum);
+        //Debug.Log("RandomNum: " + randomNum + "RandomRange" + randomRangeNum);
         if (randomNum == 0)
         {
             isItem = true;

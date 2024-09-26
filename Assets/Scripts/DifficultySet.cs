@@ -54,7 +54,7 @@ public class DifficultySet : MonoBehaviour
                 pLevel = 1;
                 break;
             case 4:
-                pLevel = 2;
+                pLevel = 1;
                 break;
             case 5:
                 pLevel = 2;
@@ -63,30 +63,33 @@ public class DifficultySet : MonoBehaviour
                 pLevel = 2;
                 break;
             case 7:
-                pLevel = 3;
+                pLevel = 2;
                 break;
             case 8:
-                pLevel = 3;
+                pLevel = 2;
                 break;
             case 9:
-                pLevel = 3;
+                pLevel = 2;
                 break;
             case 10:
                 pLevel = 3;
                 break;
             case 11:
-                pLevel = 4;
+                pLevel = 3;
                 break;
             case 12:
-                pLevel = 4;
+                pLevel = 3;
                 break;
             case 13:
-                pLevel = 4;
+                pLevel = 3;
                 break;
             case 14:
-                pLevel = 4;
+                pLevel = 3;
                 break;
             case 15:
+                pLevel = 4;
+                break;
+            default:
                 pLevel = 4;
                 break;
         }
