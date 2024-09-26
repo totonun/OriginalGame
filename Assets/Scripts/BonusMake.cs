@@ -166,7 +166,7 @@ public class BonusMake : MonoBehaviour
             //Debug.Log(pMessage[i]);
             //Debug.Log(objectNames[rand]);
 
-            int strLength = pMessage[i].Length;
+            //int strLength = pMessage[i].Length;
 
 
             if (pMessage[i].Contains(objectNames[rand]))

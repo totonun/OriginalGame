@@ -34,12 +34,12 @@ public class StopperControll: MonoBehaviour
         if (collision.tag == "Right")
         {
             gameManager.GetComponent<TitleScaleMove>().changeDirectionTriggerR = true;
-            Debug.Log("Right" + rightdirection);
+            //Debug.Log("Right" + rightdirection);
         }
         else if (collision.tag == "Left")
         {
             gameManager.GetComponent<TitleScaleMove>().changeDirectionTriggerL = true;
-            Debug.Log("Left" + leftdirection);
+            //Debug.Log("Left" + leftdirection);
         }
     }
 }

@@ -260,7 +260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8, y: 30}
+  m_AnchoredPosition: {x: 8, y: 70}
   m_SizeDelta: {x: 500, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &680226763
@@ -419,6 +419,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitTime: 0
   sceneChangeTrigger: 0
+  gameManager: {fileID: 0}
+  weightControll: {fileID: 0}
 --- !u!1 &1183997975
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,6 +589,7 @@ GameObject:
   - component: {fileID: 1249708743}
   - component: {fileID: 1249708745}
   - component: {fileID: 1249708744}
+  - component: {fileID: 1249708746}
   m_Layer: 5
   m_Name: DescliptionText
   m_TagString: Untagged
@@ -655,6 +658,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1249708742}
   m_CullTransparentMesh: 1
+--- !u!95 &1249708746
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249708742}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 802ecc39dd5fb3e40b1bb38cfb69cafb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1580393481
 GameObject:
   m_ObjectHideFlags: 0

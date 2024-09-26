@@ -32,20 +32,20 @@ public class TitleScaleMove : MonoBehaviour
     void Update()
     {
         //Debug.Log((int)rightScale.GetComponent<RectTransform>().transform.position.y);
-        rightScale.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, 0.1f * rightdirection);
-        leftScale.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, 0.1f * leftdirection);
+        rightScale.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, 0.09f * rightdirection);
+        leftScale.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, 0.09f * leftdirection);
 
         //Debug.Log(rightScale.GetComponent<RectTransform>().anchoredPosition.y);
         if (changeDirectionTriggerR)
         {
             rightdirection *= -1f;
-            Debug.Log("Right" + rightdirection);
+            //Debug.Log("Right" + rightdirection);
             changeDirectionTriggerR = false;
         }
         else if (changeDirectionTriggerL)
         {
             leftdirection *= -1f;
-            Debug.Log("Left" + leftdirection);
+            //Debug.Log("Left" + leftdirection);
         changeDirectionTriggerL = false;
         }
     }

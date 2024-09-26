@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DifficultySet : MonoBehaviour
 {
-    public static int playCount;
+    public static int playCount = 0;
     public static int levelNum = 0;
 
     public string levelWord;
@@ -18,15 +19,17 @@ public class DifficultySet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playCount++;
-        playCountText.text = "プレイ回数: " + playCount;
-        levelNum = gameLevel(playCount);
+        if (SceneManager.GetActiveScene().name == "Main")
+        {
+            playCount++;
+            playCountText.text = "プレイ回数: " + playCount;
+            levelNum = gameLevel(playCount);
+            levelToWord(levelNum);
+            levelText.text = levelWord;
 
-        levelToWord(levelNum);
-        levelText.text = levelWord;
-
-        gameManager = GameObject.Find("GameManager");
-        gameManager.GetComponent<TimeControll>().timer = timer;
+            gameManager = GameObject.Find("GameManager");
+            gameManager.GetComponent<TimeControll>().timer = timer;
+        }
     }
 
     // Update is called once per frame

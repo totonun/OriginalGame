@@ -44,6 +44,11 @@ public class DisplayResult : MonoBehaviour
 
         //differText.text = "·F " + difference.ToString("N2") + unit;
         rankText.text = "‚Ò‚Á‚½‚ñ‚±“xF " + CompareWeight.persentage.ToString() + " %";
+
+        if(CompareWeight.persentage > InputMaxScore.maxPersentage)
+        {
+            InputMaxScore.maxPersentage = CompareWeight.persentage;
+        }
     }
 
     // Update is called once per frame

@@ -26,7 +26,11 @@ public class SceneControll : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
-            if(SceneManager.GetActiveScene().name == "Title")
+            if(SceneManager.GetActiveScene().name == "Open")
+            {
+                ToTitle();
+            }
+            else if(SceneManager.GetActiveScene().name == "Title")
             {
                 ToDescliption();
             }

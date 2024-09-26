@@ -106,12 +106,12 @@ public class ScaleController : MonoBehaviour
                     rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
                     isMoveFinish = true;
-                    clickText.enabled = true;
                 }
                 
             }
             if (isMoveFinish)
             {
+                clickText.enabled = true;
                 if (Input.GetMouseButtonUp(0))
                 {
                     SceneManager.LoadScene("Bonus");

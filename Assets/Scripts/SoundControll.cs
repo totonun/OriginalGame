@@ -23,12 +23,16 @@ public class SoundControll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (SceneManager.GetActiveScene().name == "Title") return;
+        if (SceneManager.GetActiveScene().name == "Bonus") return;
+
+        else if (Input.GetMouseButtonDown(0))
         {
             clickPlayTrigger = true;
             clickPlayStart = true;
         }
-        if (clickPlayTrigger && clickPlayStart)
+
+        else if (clickPlayTrigger && clickPlayStart)
         {
             ClickSoundPlay();
             clickPlayStart = false;
