@@ -163,8 +163,8 @@ public class BonusMake : MonoBehaviour
 
         for (int i = 0; i < pMessage.Count; i++)
         {
-            Debug.Log(pMessage[i]);
-            Debug.Log(objectNames[rand]);
+            //Debug.Log(pMessage[i]);
+            //Debug.Log(objectNames[rand]);
 
             int strLength = pMessage[i].Length;
 

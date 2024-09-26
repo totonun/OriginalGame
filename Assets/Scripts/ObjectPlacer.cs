@@ -20,7 +20,7 @@ public class ObjectPlacer : MonoBehaviour
     //private GameObject gameManager;
 
     RectTransform rectTransform;
-    public Vector3[] textPos;
+    //public Vector3[] textPos;
 
     public int[] instancedNumbers;
 
@@ -118,7 +118,8 @@ public class ObjectPlacer : MonoBehaviour
             placedObjects[i] = newObject;
 
             texts[i].text = newObject.name;
-            texts[i].rectTransform.position = new Vector3(positions[i].position.x, positions[i].transform.position.y + 60, 0);
+            texts[i].rectTransform.position = new Vector3(positions[i].position.x, positions[i].transform.position.y + 50, 0);
+            texts[i].fontSize = 14;
 
             // オブジェクトを使用済みにマークする
             usedObjects[randomIndex] = true;

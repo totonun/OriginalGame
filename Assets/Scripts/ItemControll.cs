@@ -8,8 +8,10 @@ public class ItemControll : MonoBehaviour
     public GameObject itemController;
     public GameObject gameManager;
     public GameObject helpItem;
-    public GameObject rightParticle;
-    public GameObject leftParticle;
+    //public GameObject rightParticle;
+    //public GameObject leftParticle;
+    public GameObject rightArrow;
+    public GameObject leftArrow;
 
     public Text rightScaleText;
     public Text leftScaleText;
@@ -35,11 +37,17 @@ public class ItemControll : MonoBehaviour
         timer = 1.5f;
         itemUsed = false;
         audioSource = this.gameObject.GetComponent<AudioSource>();
+        if (!ReleaseItem.isItem)
+        {
+            helpItem.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!ReleaseItem.isItem) return;
+
         if (itemMove)
         {
             helpItemText.transform.position += new Vector3(0, 70, 0) * Time.deltaTime;
@@ -65,8 +73,10 @@ public class ItemControll : MonoBehaviour
         {
             rightScaleText.GetComponent<Text>().enabled = false;
             leftScaleText.GetComponent<Text>().enabled = false;
-            rightParticle.SetActive(false);
-            leftParticle.SetActive(false);
+            //rightParticle.SetActive(false);
+            //leftParticle.SetActive(false);
+            rightArrow.SetActive(false);
+            leftArrow.SetActive(false);
         }
     }
 
@@ -94,6 +104,24 @@ public class ItemControll : MonoBehaviour
                 break;
             case 4:
                 effectName = "d‚¢•û‚ð‹³‚¦‚é‚æ";
+                if (WeightControll.rightSideWeight == WeightControll.leftSideWeight)
+                {
+                    rightArrow.SetActive(true);
+                    leftArrow.SetActive(true);
+                    timerTrigger = true;
+                }
+                else if (WeightControll.rightSideWeight > WeightControll.leftSideWeight)
+                {
+                    rightArrow.SetActive(true);
+                    timerTrigger = true;
+                }
+                else
+                {
+                    leftArrow.SetActive(true);
+                    timerTrigger = true;
+                }
+
+                /*
                 if (WeightControll.rightSideWeight  ==  WeightControll.leftSideWeight)
                 {
                     rightParticle.SetActive(true);
@@ -110,6 +138,8 @@ public class ItemControll : MonoBehaviour
                     leftParticle.SetActive(true);
                     timerTrigger = true;
                 }
+                */
+
                 break;
             case 5:
                 effectName = "‚È‚É‚à‚µ‚È‚¢‚æ";
@@ -118,6 +148,5 @@ public class ItemControll : MonoBehaviour
         }
         helpItemText.text = effectName;
         itemMove = true;
-        Debug.Log("ItemTrigger");
     }
 }
