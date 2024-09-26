@@ -191,7 +191,7 @@ Canvas:
   m_GameObject: {fileID: 107354665}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 618977772}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -217,6 +217,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2480783851422698771}
   - {fileID: 891035827}
   - {fileID: 1392199057}
   - {fileID: 1498957194}
@@ -225,7 +226,6 @@ RectTransform:
   - {fileID: 528996910}
   - {fileID: 2145107842}
   - {fileID: 1586355756}
-  - {fileID: 2480783851422698771}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -951,6 +951,7 @@ MonoBehaviour:
   isFallSound: 0
   scaleFallTrigger: 0
   isRbSet: 0
+  clickText: {fileID: 0}
 --- !u!114 &923718304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1505,7 +1506,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d86401420a7be334dadf3f0c99798f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
   levelWord: 
   playCountText: {fileID: 1498957195}
   levelText: {fileID: 818264124}
@@ -1644,7 +1644,6 @@ MonoBehaviour:
   prefabByLevel1: []
   prefabByLevel2: []
   prefabByLevel3: []
-  weightClass: 0
   prefabArray: []
 --- !u!82 &1405213165
 AudioSource:
@@ -1938,7 +1937,7 @@ Transform:
   m_GameObject: {fileID: 1586355755}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -220, y: -128.1, z: 0}
+  m_LocalPosition: {x: -220, y: -99, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2272,7 +2271,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2325,7 +2324,7 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2589,7 +2588,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 1000
+    maxNumParticles: 1500
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 1
     rotation3D: 0
@@ -2657,7 +2656,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 1.2516102, y: -0.000000006474039, z: 0.0000002682209}
     m_Rotation: {x: -0, y: 0, z: 0}
-    m_Scale: {x: 3.5, y: 0.4, z: 1}
+    m_Scale: {x: 4, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -6823,7 +6822,6 @@ MonoBehaviour:
   - {fileID: 394093058}
   - {fileID: 1154509641}
   - {fileID: 1585242213}
-  objectNames: []
   canvas: {fileID: 107354665}
   textPos: []
   instancedNumbers: 
@@ -6976,7 +6974,7 @@ Transform:
   m_GameObject: {fileID: 2145107841}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 180.7, y: -128.1, z: 0}
+  m_LocalPosition: {x: 168, y: -98.9, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7310,7 +7308,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -7363,7 +7361,7 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -7627,7 +7625,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 1000
+    maxNumParticles: 1500
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 1
     rotation3D: 0
@@ -7695,7 +7693,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 1.2516102, y: -0.000000006474039, z: 0.0000002682209}
     m_Rotation: {x: -0, y: 0, z: 0}
-    m_Scale: {x: 3.5, y: 0.4, z: 1}
+    m_Scale: {x: 4, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0

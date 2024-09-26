@@ -17,7 +17,7 @@ public class ObjectPlacer : MonoBehaviour
 
     public GameObject canvas;
     private GameObject weightController;
-    private GameObject gameManager;
+    //private GameObject gameManager;
 
     RectTransform rectTransform;
     public Vector3[] textPos;
@@ -32,18 +32,11 @@ public class ObjectPlacer : MonoBehaviour
     {
         weightController = GameObject.Find("WeightController");
         listSelect = Random.Range(1, 4);
-        //Debug.Log("RandomSelect: " + listSelect);
 
         switch (listSelect)
         {
             case 1:
                 objectsToPlace = weightController.GetComponent<WeightRegist>().prefabByLevel1;
-                /*
-                for(int i = 0; i < objectsToPlace.Count; i++)
-                {
-                    Debug.Log(objectsToPlace[i].name);
-                }
-                */
                 break;
             case 2:
                 objectsToPlace = weightController.GetComponent<WeightRegist>().prefabByLevel2;
@@ -81,8 +74,6 @@ public class ObjectPlacer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        gameManager = GameObject.Find("GameManager");
 
     }
 

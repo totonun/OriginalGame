@@ -9,10 +9,6 @@ public class WeightRegist : MonoBehaviour
     public List<Status> statusList;
     public List<GameObject> prefabList;
 
-    //public List<Status> listByLevel1;
-    //public List<Status> listByLevel2;
-    //public List<Status> listByLevel3;
-
     public List<GameObject> prefabByLevel1;
     public List<GameObject> prefabByLevel2;
     public List<GameObject> prefabByLevel3;
