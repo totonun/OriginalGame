@@ -18,6 +18,8 @@ public class WeightControll : MonoBehaviour
 
     public GameObject itemController;
 
+    AudioSource audioSource;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,8 @@ public class WeightControll : MonoBehaviour
         }
         isTextInput = false;
         compareTrigger = false;
+
+        audioSource = this.gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -62,6 +66,7 @@ public class WeightControll : MonoBehaviour
         TextInput(rightWeightText, rightSideWeight);
         compareTrigger = true;
         //rightWeightText.text = rightSideWeight.ToString();
+        audioSource.Play();
     }
 
     public void LeftAddWeight(int j)
@@ -70,6 +75,7 @@ public class WeightControll : MonoBehaviour
         //leftWeightText.text = leftSideWeight.ToString();
         compareTrigger = true;
         TextInput(leftWeightText, leftSideWeight);
+        audioSource.Play();
     }
 
     void CompareWeight()

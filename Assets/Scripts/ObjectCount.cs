@@ -22,7 +22,8 @@ public class ObjectCount : MonoBehaviour
         objectPlacer = GameObject.Find("ObjectPlacer");
         count = objectPlacer.GetComponent<ObjectPlacer>().count;
         objectCountArray = new int[count];
-        objectNames = this.gameObject.GetComponent<ObjectPlacer>().objectNames;
+        //objectNames = this.gameObject.GetComponent<ObjectPlacer>().objectNames;
+        objectNames = ObjectPlacer.objectNames;
         //placedObjects = objectPlacer.GetComponent<ObjectPlacer>().placedObjects;
     }
 

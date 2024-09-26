@@ -17,7 +17,7 @@ public class WeightRegist : MonoBehaviour
     public List<GameObject> prefabByLevel2;
     public List<GameObject> prefabByLevel3;
 
-    public int weightClass;
+    //public static int weightClass;
 
     private GameObject obj = null;
 
@@ -145,19 +145,19 @@ public class WeightRegist : MonoBehaviour
             {
                 //listByLevel1.Add(statusList[i]);
                 prefabByLevel1.Add(statusList[i].setObject);
-                weightClass = 1;
+               // weightClass = 1;
             }
             else if (weight < 9000)
             {
                 //listByLevel2.Add(statusList[i]);
                 prefabByLevel2.Add(statusList[i].setObject);
-                weightClass = 2;
+                //weightClass = 2;
             }
             else
             {
                 //listByLevel3.Add(statusList[i]);
                 prefabByLevel3.Add(statusList[i].setObject);
-                weightClass = 3;
+                //weightClass = 3;
             }
         }
         /*

@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class DifficultySet : MonoBehaviour
 {
     public static int playCount;
-    public int level;
+    public static int levelNum = 0;
+
     public string levelWord;
     public Text playCountText;
     public Text levelText;
@@ -19,9 +20,9 @@ public class DifficultySet : MonoBehaviour
     {
         playCount++;
         playCountText.text = "ÉvÉåÉCâÒêî: " + playCount;
-        level = gameLevel(playCount);
+        levelNum = gameLevel(playCount);
 
-        levelToWord(level);
+        levelToWord(levelNum);
         levelText.text = levelWord;
 
         gameManager = GameObject.Find("GameManager");

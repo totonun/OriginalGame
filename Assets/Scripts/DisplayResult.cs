@@ -13,7 +13,7 @@ public class DisplayResult : MonoBehaviour
     public Text leftText;
     private float rightWeight;
     private float leftWeight;
-    private float difference;
+    //private float difference;
 
     private string unit;
 
@@ -36,7 +36,7 @@ public class DisplayResult : MonoBehaviour
         {
             unit = " g";
         }
-        difference = Mathf.Abs(rightWeight - leftWeight);
+        //difference = Mathf.Abs(rightWeight - leftWeight);
 
         rightText.text = "âE: " + rightWeight.ToString() + unit ;
         leftText.text = "ç∂: " + leftWeight.ToString() + unit;

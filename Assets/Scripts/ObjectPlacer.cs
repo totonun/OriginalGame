@@ -11,7 +11,9 @@ public class ObjectPlacer : MonoBehaviour
     public GameObject[] placedObjects; //配置されたオブジェクト
     public Transform[] positions; // 配置する位置の配列
     public Text[] texts;
-    public string[] objectNames;
+    public static string[] objectNames;
+
+    public static int listSelect;
 
     public GameObject canvas;
     private GameObject weightController;
@@ -29,7 +31,7 @@ public class ObjectPlacer : MonoBehaviour
     private void Awake()
     {
         weightController = GameObject.Find("WeightController");
-        int listSelect = Random.Range(1, 4);
+        listSelect = Random.Range(1, 4);
         //Debug.Log("RandomSelect: " + listSelect);
 
         switch (listSelect)

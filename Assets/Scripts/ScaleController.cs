@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ScaleController : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class ScaleController : MonoBehaviour
     public bool isRbSet;
     private bool moveTrigger;
 
+    public Text clickText;
+    private bool isMoveFinish;
+
     private Vector3 originalPos;
 
     // Start is called before the first frame update
@@ -35,11 +39,20 @@ public class ScaleController : MonoBehaviour
         isFallSound = false;
         scaleFallTrigger = false;
         isRbSet = false;
+        isMoveFinish = false;
+        moveTrigger = false;
 
-        if(SceneManager.GetActiveScene().name == "Result")
+        if (SceneManager.GetActiveScene().name == "Result")
         {
-            moveTrigger = false;
-            rankMoveSet();
+            clickText.enabled = false;
+            if (CompareWeight.persentage == 0)
+            {
+                isMoveFinish = true;
+            }
+            else
+            {
+                rankMoveSet();
+            }
         }
     }
 
@@ -84,15 +97,25 @@ public class ScaleController : MonoBehaviour
             if (moveTrigger)
             {                
                 //moveObject.transform.position -= new Vector3(0, 80, 0) * Time.deltaTime;
-                Debug.Log(originalPos.y - moveObject.transform.position.y);
+                //Debug.Log(originalPos.y - moveObject.transform.position.y);
                 
-                if ((originalPos.y - moveObject.transform.position.y)  > (100 -CompareWeight.persentage)  * 20 / 21)
+                if ((originalPos.y - moveObject.transform.position.y)  > (100 -CompareWeight.persentage)  / 3)
                 {
                     Debug.Log("Stop");
                     moveTrigger = false;
                     rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+                    isMoveFinish = true;
+                    clickText.enabled = true;
                 }
                 
+            }
+            if (isMoveFinish)
+            {
+                if (Input.GetMouseButtonUp(0))
+                {
+                    SceneManager.LoadScene("Bonus");
+                }
             }
         }
 
@@ -134,6 +157,7 @@ public class ScaleController : MonoBehaviour
         {
             moveObject = leftScale;
         }
+
         originalPos = new Vector3(moveObject.transform.position.x, moveObject.transform.position.y, moveObject.transform.position.z);
         rb = moveObject.GetComponent<Rigidbody2D>();
         rb.constraints = RigidbodyConstraints2D.None;
