@@ -161,6 +161,12 @@ public class WeightRegist : MonoBehaviour
             }
         }
         /*
+        for(int j = 0; j < prefabByLevel1.Count; j++)
+        {
+            Debug.Log(prefabByLevel1[j].name);
+        }
+        */
+        /*
         Debug.Log("1: " + prefabByLevel1.Count);
         Debug.Log("2: " + prefabByLevel2.Count);
         Debug.Log("3: " + prefabByLevel3.Count);

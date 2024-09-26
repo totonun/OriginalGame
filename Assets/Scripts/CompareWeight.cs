@@ -12,59 +12,61 @@ public class CompareWeight : MonoBehaviour
     public GameObject weightController;
     public GameObject objectPlacer;
 
+    public static int persentage;
+
     public string rank;
 
     //public int correction;
 
-    public int maxWeight;
+    public static int maxWeight;
 
     // Start is called before the first frame update
     void Start()
     {
         weightController = GameObject.Find("WeightController");
-        //objectPlacer = GameObject.Find("ObjectPlacer");
+        objectPlacer = GameObject.Find("ObjectPlacer");
         //rightWeight = WeightControll.rightSideWeight;
         //leftWeight = WeightControll.leftSideWeight;
         maxWeight = 0;
         setMaxWeight();
-
-        /*
-        Ranking(difference);
-        int weightClass = weightController.GetComponent<WeightRegist>().weightClass;
-        switch (weightClass)
-        {
-            case 1:
-                correction = 1;
-                break;
-            case 2:
-                correction = 10;
-                break;
-            case 3:
-                correction = 100;
-                break;
-        }
-        */
+        persentage = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        if(SceneManager.GetActiveScene().name == "Result")
+        if(SceneManager.GetActiveScene().name == "Main")
         {
-            Debug.Log(CalculatePercentage());
+            persentage = CalculatePercentage();
         }
-        */
     }
 
-    // ˆê’v“x‡‚¢‚ğ•S•ª—¦‚ÅŒvZ‚·‚é
+    /*
+       public int CalculatePercentage()
+       {
+           // ˆê’v“x‡‚¢‚ğŒvZ
+           float matchPercentage = 100 - (((float)difference / maxWeight *4) * 60);
+           Debug.Log(((float)difference / maxWeight * 7) * 60);
+
+           // 0%ˆÈ‰º‚É‚Í‚È‚ç‚È‚¢‚æ‚¤‚É’²®
+           return (int)Mathf.Max(matchPercentage, 0);
+       }
+    */
     public int CalculatePercentage()
     {
-        // ˆê’v“x‡‚¢‚ğŒvZ
-        float matchPercentage = 100 - (((float)difference / maxWeight *2) * 70);
+        // •½‹Ï’l‚ğŠî€‚É‚·‚é
+        int averageWeight = setAveWeight();
 
-        // 0%ˆÈ‰º‚É‚Í‚È‚ç‚È‚¢‚æ‚¤‚É’²®
-        return (int)Mathf.Max(matchPercentage, 0);
+        // •½‹Ï’l‚ª0‚Ìê‡‚É”õ‚¦A­‚È‚­‚Æ‚à1‚É‚·‚é
+        if (averageWeight == 0)
+            averageWeight = 1;
+
+        float scalingFactor = 0.5f;
+        float matchPercentage = 100 * Mathf.Exp(-(scalingFactor * (float)difference / averageWeight));
+
+
+        // 0%ˆÈ‰º‚É‚Í‚È‚ç‚È‚¢‚æ‚¤‚ÉA‚Ü‚½100%‚ğ’´‚¦‚È‚¢‚æ‚¤‚É’²®
+        return (int)Mathf.Clamp(matchPercentage, 0, 100);
     }
 
     private void setMaxWeight()
@@ -80,6 +82,17 @@ public class CompareWeight : MonoBehaviour
         }
     }
 
+    private int setAveWeight()
+    {
+        int total = 0;
+        for (int i = 0; i < ObjectPlacer.placedObjectsWeight.Length; i++)
+        {
+            total += ObjectPlacer.placedObjectsWeight[i];
+        }
+        int ave = total / ObjectPlacer.placedObjectsWeight.Length;
+        return ave;
+    }
+
     public bool tooHeavyTrigger()
     {
         difference = WeightControll.weightDifference;
@@ -93,38 +106,4 @@ public class CompareWeight : MonoBehaviour
             return false;
         }
     }
-
-    /*
-    void Ranking(int dif)
-    {
-        if(dif <= 50 * correction)
-        {
-            rank = "‚Æ‚Ä‚à‚·‚²‚¢";
-        }
-        else if(dif <= 100 * correction)
-        {
-            rank = "‚í‚è‚Æ‚·‚²‚¢";
-        }
-        else if(dif <= 500 * correction)
-        {
-            rank = "‚Ü‚¸‚Ü‚¸";
-        }
-        else if(dif <= 1000 * correction)
-        {
-            rank = "‚Ü‚ ‚Ü‚ ";
-        }
-        else if(dif <= 5000 * correction)
-        {
-            rank = "‚à‚¤‚¿‚å‚¢";
-        }
-        else if(dif <= 10000 * correction)
-        {
-            rank = "‚à‚¤‚¿‚å‚¢‚ª‚ñ‚Î‚ê";
-        }
-        else
-        {
-            rank = "‚È‚ñ‚Å‚â‚Ë‚ñ";
-        }
-    }
-    */
 }

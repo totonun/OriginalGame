@@ -17,6 +17,7 @@ public class ItemControll : MonoBehaviour
     public Text helpItemText;
 
     TimeControll tc;
+    AudioSource audioSource;
 
     private bool itemMove;
     private bool timerTrigger;
@@ -31,8 +32,9 @@ public class ItemControll : MonoBehaviour
         itemController = this.gameObject;
         tc = gameManager.GetComponent<TimeControll>();
         itemMove = false;
-        timer = 1.0f;
+        timer = 1.5f;
         itemUsed = false;
+        audioSource = this.gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -54,7 +56,7 @@ public class ItemControll : MonoBehaviour
         else if (timerTrigger)
         {
             timer -= Time.deltaTime;
-            if(timer == 0)
+            if((int)timer == 0)
             {
                 timerTrigger = false;
             }
@@ -71,8 +73,9 @@ public class ItemControll : MonoBehaviour
     public void itemHelp()
     {
         itemUsed = true;
-        int rand = Random.Range(1, 6);
+        int rand = Random.Range(4, 5);
         string effectName = null;
+        audioSource.Play();
         switch (rand)
         {
             case 1:
@@ -91,7 +94,13 @@ public class ItemControll : MonoBehaviour
                 break;
             case 4:
                 effectName = "d‚¢•û‚ð‹³‚¦‚é‚æ";
-                if(WeightControll.rightSideWeight > WeightControll.leftSideWeight)
+                if (WeightControll.rightSideWeight  ==  WeightControll.leftSideWeight)
+                {
+                    rightParticle.SetActive(true);
+                    leftParticle.SetActive(true);
+                    timerTrigger = true;
+                }
+                else if (WeightControll.rightSideWeight > WeightControll.leftSideWeight)
                 {
                     rightParticle.SetActive(true);
                     timerTrigger = true;
@@ -99,7 +108,7 @@ public class ItemControll : MonoBehaviour
                 else
                 {
                     leftParticle.SetActive(true);
-                    timerTrigger = false;
+                    timerTrigger = true;
                 }
                 break;
             case 5:
@@ -109,5 +118,6 @@ public class ItemControll : MonoBehaviour
         }
         helpItemText.text = effectName;
         itemMove = true;
+        Debug.Log("ItemTrigger");
     }
 }

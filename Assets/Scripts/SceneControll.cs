@@ -10,11 +10,13 @@ public class SceneControll : MonoBehaviour
     public bool sceneChangeTrigger;
 
     public GameObject gameManager;
+    public GameObject weightControll;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = this.gameObject;
+        weightControll = GameObject.Find("WeightControll");
         waitTime = 1.0f;
         sceneChangeTrigger = false;
     }
@@ -57,6 +59,9 @@ public class SceneControll : MonoBehaviour
     public void GameOver()
     {
         SceneManager.LoadScene("GameOver");
+        WeightControll.leftSideWeight = 0;
+        WeightControll.rightSideWeight = 0;
+        DifficultySet.playCount--;
     }
 
     public void ToPrepareStart()
