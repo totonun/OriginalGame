@@ -13,7 +13,6 @@ public class WeightControll : MonoBehaviour
     public Text rightWeightText;
     public Text leftWeightText;
 
-    private bool compareTrigger;
     private bool isTextInput;
 
     public GameObject itemController;
@@ -28,10 +27,9 @@ public class WeightControll : MonoBehaviour
         {
             TextInput(rightWeightText, rightSideWeight);
             TextInput(leftWeightText, leftSideWeight);
-            CompareWeight();
+            //CompareWeight();
         }
         isTextInput = false;
-        compareTrigger = false;
 
         audioSource = this.gameObject.GetComponent<AudioSource>();
     }
@@ -39,12 +37,7 @@ public class WeightControll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (compareTrigger)
-        {
-            CompareWeight();
-            compareTrigger = false;
-        }
-        else if (itemController.GetComponent<ItemControll>().itemUsed)
+        if (itemController.GetComponent<ItemControll>().itemUsed)
         {
             BothTextInput();
         }
@@ -64,24 +57,25 @@ public class WeightControll : MonoBehaviour
     {
         rightSideWeight += i;
         TextInput(rightWeightText, rightSideWeight);
-        compareTrigger = true;
+        //compareTrigger = true;
         //rightWeightText.text = rightSideWeight.ToString();
         audioSource.Play();
+        CompareWeight();
     }
 
     public void LeftAddWeight(int j)
     {
         leftSideWeight += j;
-        //leftWeightText.text = leftSideWeight.ToString();
-        compareTrigger = true;
         TextInput(leftWeightText, leftSideWeight);
         audioSource.Play();
+        CompareWeight();
     }
 
     void CompareWeight()
     {
         weightDifference = Mathf.Abs(rightSideWeight - leftSideWeight);
-    }
+        Debug.Log(rightSideWeight + " : " +  leftSideWeight);
+    } 
 
     void TextInput(Text pText, int pWeight)
     {

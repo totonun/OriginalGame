@@ -12,6 +12,8 @@ public class SceneControll : MonoBehaviour
     public GameObject gameManager;
     public GameObject weightControll;
 
+    public static string reasonString;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,8 +59,9 @@ public class SceneControll : MonoBehaviour
         SceneManager.LoadScene("Result");
     }
 
-    public void GameOver()
+    public void GameOver(string reason)
     {
+        reasonString = reason;
         SceneManager.LoadScene("GameOver");
         DifficultySet.playCount--;
     }
@@ -69,6 +72,7 @@ public class SceneControll : MonoBehaviour
         WeightControll.leftSideWeight = 0;
         WeightControll.rightSideWeight = 0;
         WeightControll.weightDifference = 0;
+        CompareWeight.maxWeight = 0;
     }
 
     public void ToDescliption()

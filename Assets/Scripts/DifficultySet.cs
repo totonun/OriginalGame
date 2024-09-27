@@ -102,7 +102,7 @@ public class DifficultySet : MonoBehaviour
         switch (pLevel)
         {
             case 0:
-                levelWord = "チャートリアル";
+                levelWord = "チュートリアル";
                 timer = 20;
                 break;
             case 1:

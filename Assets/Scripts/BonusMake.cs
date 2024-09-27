@@ -180,6 +180,10 @@ public class BonusMake : MonoBehaviour
         int selectText = Random.Range(0, matchTexts.Count);
         //Debug.Log(selectText);
         bonusText.text = matchTexts[selectText];
+        if(matchTexts.Count == 0)
+        {
+            bonusText.text = "d‚³‚ğ“–‚Ä‚é‚Ì‚Á‚ÄˆÄŠO“ï‚µ‚¢‚æ‚Ë";
+        }
 
     }
 }

@@ -11,6 +11,7 @@ public class ObjectPlacer : MonoBehaviour
     public GameObject[] placedObjects; //配置されたオブジェクト
     public Transform[] positions; // 配置する位置の配列
     public Text[] texts;
+    public Transform[] textPositions;
     public static string[] objectNames;
 
     public static int listSelect;
@@ -118,7 +119,7 @@ public class ObjectPlacer : MonoBehaviour
             placedObjects[i] = newObject;
 
             texts[i].text = newObject.name;
-            texts[i].rectTransform.position = new Vector3(positions[i].position.x, positions[i].transform.position.y + 50, 0);
+            //texts[i].rectTransform.position = new Vector3(positions[i].position.x, positions[i].transform.position.y + 50, 0);
             texts[i].fontSize = 14;
 
             // オブジェクトを使用済みにマークする
@@ -126,6 +127,7 @@ public class ObjectPlacer : MonoBehaviour
 
         // 新しいオブジェクトをCanvasの子に設定
         newObject.transform.SetParent(canvas.transform, false);
+
 
             // newObjectのRectTransformを取得して、positionの値を設定
             rectTransform = newObject.GetComponent<RectTransform>();

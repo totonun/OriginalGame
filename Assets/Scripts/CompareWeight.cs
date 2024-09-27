@@ -75,7 +75,9 @@ public class CompareWeight : MonoBehaviour
 
     public bool tooHeavyTrigger()
     {
-        difference = WeightControll.weightDifference;
+        //difference = WeightControll.weightDifference;
+        difference = Mathf.Abs(WeightControll.rightSideWeight - WeightControll.leftSideWeight);
+        Debug.Log("Difference" + difference + "Right : " + WeightControll.rightSideWeight + "Left : " + WeightControll.leftSideWeight);
         if (difference != 0 && difference > maxWeight * 3)
         {
             return true;

@@ -78,7 +78,7 @@ public class ScaleController : MonoBehaviour
             {
                 if (isGravity)
                 {
-                    sc.GameOver();
+                    sc.GameOver("•Ð•û‚É‚Ì‚¹‚·‚¬I");
                 }
                 else if (WeightControll.rightSideWeight > WeightControll.leftSideWeight)
                 {
@@ -100,7 +100,6 @@ public class ScaleController : MonoBehaviour
                 
                 if ((originalPos.y - moveObject.transform.position.y)  > (100 -CompareWeight.persentage)  / 3)
                 {
-                    Debug.Log("Stop");
                     moveTrigger = false;
                     rb.constraints = RigidbodyConstraints2D.FreezeAll;
 

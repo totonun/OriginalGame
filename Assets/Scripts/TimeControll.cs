@@ -34,7 +34,7 @@ public class TimeControll : MonoBehaviour
             timer = 0.0f;
             if (!objectCount.checkUseObject() || !objectCount.differenceTrigger())
             {
-                sc.GameOver();
+                sc.GameOver("¶‰E‚ÌŒÂ”‚ªˆêI");
             }
             else
             {

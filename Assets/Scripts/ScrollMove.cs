@@ -44,6 +44,7 @@ public class ScrollMove : MonoBehaviour
 
         collider2d = this.gameObject.GetComponent<CapsuleCollider2D>();
         collider2d.isTrigger = false;
+        collider2d.enabled = false;
 
         originalPos = new Vector3(this.rectTransform.position.x, this.rectTransform.position.y, this.rectTransform.position.z);
 
@@ -74,6 +75,7 @@ public class ScrollMove : MonoBehaviour
 
     public void OnMouseDown()
     {
+        collider2d.enabled = true;
         isDragging = true;
         rb.constraints = RigidbodyConstraints2D.None;
         //rb.constraints = RigidbodyConstraints2D.FreezeRotation;
