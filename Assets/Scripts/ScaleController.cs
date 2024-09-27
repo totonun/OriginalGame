@@ -17,7 +17,7 @@ public class ScaleController : MonoBehaviour
 
     Rigidbody2D rb;
     SceneControll sc;
-    AudioSource audioSource;
+    //AudioSource audioSource;
 
     public bool isFallSound;
     public bool isRbSet;
@@ -34,7 +34,7 @@ public class ScaleController : MonoBehaviour
         isGravity = false;
         gameManager = this.gameObject;
         sc = gameManager.GetComponent<SceneControll>();
-        audioSource = gameManager.GetComponent<AudioSource>();
+        //audioSource = gameManager.GetComponent<AudioSource>();
         isFallSound = false;
         //scaleFallTrigger = false;
         isRbSet = false;
@@ -133,7 +133,7 @@ public class ScaleController : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         isRbSet = true;
-        audioSource.Play();
+        //audioSource.Play();
     }
 
     private void addForce(GameObject pObject)
@@ -164,7 +164,7 @@ public class ScaleController : MonoBehaviour
 
         rb.AddForce(new Vector2(0, 40), ForceMode2D.Impulse);
         rb.velocity = new Vector2(0, -5);
-        audioSource.Play();
+        //audioSource.Play();
         moveTrigger = true;
     }
 }

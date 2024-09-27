@@ -76,7 +76,7 @@ public class ScrollMove : MonoBehaviour
     {
         isDragging = true;
         rb.constraints = RigidbodyConstraints2D.None;
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        //rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     public void OnMouseUp()

@@ -34,10 +34,6 @@ public class SceneControll : MonoBehaviour
             {
                 ToDescliption();
             }
-            else if (SceneManager.GetActiveScene().name == "Descliption")
-            {
-                ToPrepareStart();
-            }
             else if(SceneManager.GetActiveScene().name == "GameFinish")
             {
                 ToResult();

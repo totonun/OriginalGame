@@ -155,7 +155,7 @@ public class BonusMake : MonoBehaviour
                 pMessage = new List<string>(bonusMessage3);
                 break;
             default:
-                Debug.LogWarning("Unexpected value for num: " + num);  // エラーメッセージを表示
+                //Debug.LogWarning("Unexpected value for num: " + num);  // エラーメッセージを表示
                 break;
         }
 
@@ -178,7 +178,7 @@ public class BonusMake : MonoBehaviour
         }
 
         int selectText = Random.Range(0, matchTexts.Count);
-        Debug.Log(selectText);
+        //Debug.Log(selectText);
         bonusText.text = matchTexts[selectText];
 
     }

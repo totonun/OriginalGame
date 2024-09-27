@@ -76,7 +76,7 @@ public class CompareWeight : MonoBehaviour
     public bool tooHeavyTrigger()
     {
         difference = WeightControll.weightDifference;
-        if (difference != 0 && difference > maxWeight * 2)
+        if (difference != 0 && difference > maxWeight * 3)
         {
             return true;
         }
