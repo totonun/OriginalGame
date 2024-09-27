@@ -77,7 +77,7 @@ public class CompareWeight : MonoBehaviour
     {
         //difference = WeightControll.weightDifference;
         difference = Mathf.Abs(WeightControll.rightSideWeight - WeightControll.leftSideWeight);
-        Debug.Log("Difference" + difference + "Right : " + WeightControll.rightSideWeight + "Left : " + WeightControll.leftSideWeight);
+        //Debug.Log("Difference" + difference + "Right : " + WeightControll.rightSideWeight + "Left : " + WeightControll.leftSideWeight);
         if (difference != 0 && difference > maxWeight * 3)
         {
             return true;

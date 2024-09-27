@@ -61,7 +61,7 @@ public class ObjectPlacer : MonoBehaviour
         placedObjects = new GameObject[count];
 
         // 配置場所のインデックスをランダムにシャッフル
-        ShuffleArray(positions);
+        //ShuffleArray(positions);
 
         //  Prefabが存在するオブジェクトの数が要素数の配列
         int num = objectsToPlace.Count;
@@ -118,7 +118,7 @@ public class ObjectPlacer : MonoBehaviour
             placedObjectsWeight[i] = newObject.GetComponent<ScrollMove>().weight;
             placedObjects[i] = newObject;
 
-            texts[i].text = newObject.name;
+            texts[i].text = objectNames[i];
             //texts[i].rectTransform.position = new Vector3(positions[i].position.x, positions[i].transform.position.y + 50, 0);
             texts[i].fontSize = 14;
 
@@ -143,6 +143,7 @@ public class ObjectPlacer : MonoBehaviour
         }
     }
 
+    
     // 配列をシャッフルするメソッド
     void ShuffleArray(Transform[] array)
     {
