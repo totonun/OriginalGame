@@ -83,7 +83,7 @@ public class ItemControll : MonoBehaviour
     public void itemHelp()
     {
         itemUsed = true;
-        int rand = Random.Range(4, 5);
+        int rand = Random.Range(1, 6);
         string effectName = null;
         audioSource.Play();
         switch (rand)
