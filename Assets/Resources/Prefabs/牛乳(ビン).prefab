@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1763660304098418362}
   - component: {fileID: 243604733893842463}
   - component: {fileID: 3119466601040691717}
-  - component: {fileID: 2015885854918596751}
   - component: {fileID: 6705814492463992462}
+  - component: {fileID: 5919114711947480137}
   m_Layer: 5
   m_Name: "\u725B\u4E73(\u30D3\u30F3)"
   m_TagString: Untagged
@@ -102,6 +102,9 @@ MonoBehaviour:
   prePos: {x: 0, y: 0, z: 0}
   addedPos: {x: 0, y: 0, z: 0}
   message: 
+  targetCollider: {fileID: 0}
+  setCanvas: 0
+  freezeTrigger: 0
 --- !u!114 &3119466601040691717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,41 +150,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!70 &2015885854918596751
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4457661931385404917}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.57663184, y: -4.7532587}
-  m_Size: {x: 37.161034, y: 62.426968}
-  m_Direction: 0
 --- !u!50 &6705814492463992462
 Rigidbody2D:
   serializedVersion: 4
@@ -209,6 +177,81 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!60 &5919114711947480137
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4457661931385404917}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 27.117506, y: 6.751482}
+      - {x: 19.228634, y: 1.8442059}
+      - {x: 18.940542, y: 12.495393}
+      - {x: 12.4816885, y: 21.821022}
+      - {x: 12.033603, y: 34.048992}
+      - {x: -12.369363, y: 34.069115}
+      - {x: -13.14247, y: 21.484858}
+      - {x: -19.86151, y: 13.74962}
+      - {x: -20.408207, y: 2.738449}
+      - {x: -27.381107, y: 6.9165816}
+      - {x: -31.615118, y: 3.6534002}
+      - {x: -33.01044, y: -1.7104638}
+      - {x: -25.136034, y: -2.2199774}
+      - {x: -20.524643, y: -5.8079553}
+      - {x: -19.327826, y: -22.666344}
+      - {x: -13.166619, y: -27.314405}
+      - {x: -15.627104, y: -28.883446}
+      - {x: -19.938145, y: -29.843485}
+      - {x: -20.530218, y: -34.88785}
+      - {x: -10.362132, y: -36.22163}
+      - {x: -8.557699, y: -28.475754}
+      - {x: 7.029609, y: -28.34826}
+      - {x: 10.395191, y: -36.486713}
+      - {x: 20.242527, y: -34.247337}
+      - {x: 15.229107, y: -26.305044}
+      - {x: 19.092068, y: -21.328182}
+      - {x: 18.879524, y: -6.9261093}
+      - {x: 25.466509, y: -2.8166723}
+      - {x: 29.56725, y: -2.568677}
+      - {x: 32.505524, y: 1.5712008}
+  m_UseDelaunayMesh: 0
 --- !u!1 &6141606717952596173
 GameObject:
   m_ObjectHideFlags: 0

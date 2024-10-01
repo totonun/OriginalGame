@@ -26,7 +26,7 @@ public class ScrollMove : MonoBehaviour
 
     RectTransform rectTransform;
     Rigidbody2D rb;
-    CapsuleCollider2D collider2d;
+    PolygonCollider2D collider2d;
 
     public string message;
 
@@ -42,7 +42,7 @@ public class ScrollMove : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
         rb = GetComponent<Rigidbody2D>();
 
-        collider2d = this.gameObject.GetComponent<CapsuleCollider2D>();
+        collider2d = this.gameObject.GetComponent<PolygonCollider2D>();
         collider2d.isTrigger = false;
         collider2d.enabled = false;
 
@@ -108,12 +108,12 @@ public class ScrollMove : MonoBehaviour
 
             rectTransform.localPosition = canvas.GetComponent<RectTransform>().InverseTransformPoint(originalPos);
 
-            newObj.GetComponent<CapsuleCollider2D>().isTrigger = false;
+            newObj.GetComponent<PolygonCollider2D>().isTrigger = false;
             newObj.SetActive(true);
 
-        CapsuleCollider2D collider2D = newObj.gameObject.GetComponent<CapsuleCollider2D>();
+        PolygonCollider2D collider2D = newObj.gameObject.GetComponent<PolygonCollider2D>();
         collider2D.isTrigger = false;
-        GetComponent<CapsuleCollider2D>().isTrigger = true;
+        GetComponent<PolygonCollider2D>().isTrigger = true;
     }
 
     private void OnTriggerEnter2D (Collider2D other)

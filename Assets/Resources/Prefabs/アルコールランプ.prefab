@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 3160189071721301963}
   - component: {fileID: 725548605432510685}
   - component: {fileID: 4378911365431388067}
-  - component: {fileID: 3510413640136653568}
   - component: {fileID: 5184608213137838737}
+  - component: {fileID: 4540294541050649878}
   m_Layer: 5
   m_Name: "\u30A2\u30EB\u30B3\u30FC\u30EB\u30E9\u30F3\u30D7"
   m_TagString: Untagged
@@ -101,6 +101,9 @@ MonoBehaviour:
   prePos: {x: 0, y: 0, z: 0}
   addedPos: {x: 0, y: 0, z: 0}
   message: 
+  targetCollider: {fileID: 0}
+  setCanvas: 0
+  freezeTrigger: 0
 --- !u!114 &4378911365431388067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,41 +149,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!70 &3510413640136653568
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3252759505402202103}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.19497636, y: -3.8413846}
-  m_Size: {x: 71.468765, y: 78.43447}
-  m_Direction: 0
 --- !u!50 &5184608213137838737
 Rigidbody2D:
   serializedVersion: 4
@@ -208,3 +176,66 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!60 &4540294541050649878
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3252759505402202103}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 9.994302, y: 9.194522}
+      - {x: 14.121234, y: 16.690397}
+      - {x: 12.06798, y: 25.867613}
+      - {x: -0.6653538, y: 35.349644}
+      - {x: -9.758784, y: 28.463081}
+      - {x: -16.158321, y: 19.31277}
+      - {x: -11.054048, y: 8.73128}
+      - {x: -16.03216, y: -3.64079}
+      - {x: -29.675192, y: -11.741821}
+      - {x: -30.749994, y: -27.380512}
+      - {x: -20.065012, y: -31.8312}
+      - {x: -1.8455313, y: -33.516663}
+      - {x: 23.12719, y: -31.57566}
+      - {x: 29.728243, y: -27.864788}
+      - {x: 31.109087, y: -16.249199}
+      - {x: 25.915236, y: -7.034141}
+      - {x: 14.350415, y: -2.5976355}
+      - {x: 13.877727, y: 6.05418}
+  m_UseDelaunayMesh: 0
