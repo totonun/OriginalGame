@@ -13,8 +13,8 @@ public class ItemControll : MonoBehaviour
     public GameObject rightArrow;
     public GameObject leftArrow;
 
-    public Text rightScaleText;
-    public Text leftScaleText;
+    public GameObject rightScaleText;
+    public GameObject leftScaleText;
 
     public Text helpItemText;
 
@@ -71,8 +71,11 @@ public class ItemControll : MonoBehaviour
         }
         else
         {
-            rightScaleText.GetComponent<Text>().enabled = false;
-            leftScaleText.GetComponent<Text>().enabled = false;
+            //rightScaleText.GetComponent<Text>().enabled = false;
+            //leftScaleText.GetComponent<Text>().enabled = false;
+            rightScaleText.SetActive(false);
+            leftScaleText.SetActive(false);
+
             //rightParticle.SetActive(false);
             //leftParticle.SetActive(false);
             rightArrow.SetActive(false);
@@ -95,12 +98,16 @@ public class ItemControll : MonoBehaviour
             case 2:
                 effectName = "右の重さ教えるよ";
                 timerTrigger = true;
-                rightScaleText.GetComponent<Text>().enabled = true;
+                //rightScaleText.GetComponent<Text>().enabled = true;
+                //rightScaleText.enabled = true;
+                rightScaleText.SetActive(true);
                 break;
             case 3:
                 effectName = "左の重さ教えるよ";
                 timerTrigger = true;
-                leftScaleText.GetComponent<Text>().enabled = true;
+                //leftScaleText.GetComponent<Text>().enabled = true;
+                //leftScaleText.enabled = true;
+                leftScaleText.SetActive(true);
                 break;
             case 4:
                 effectName = "重い方を教えるよ";
