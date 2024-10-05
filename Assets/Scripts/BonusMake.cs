@@ -172,6 +172,7 @@ public class BonusMake : MonoBehaviour
         GameObject bonusObject = (GameObject)Instantiate(prefabObject);
         bonusObject.transform.SetParent(GameObject.Find("Canvas").transform, false);
         bonusObject.transform.position = bonusObjectPlace.transform.position;
+        bonusObject.transform.localScale = new Vector3(1.5f, 1.5f, 1);
         bonusObject.SetActive(true);
 
         for (int i = 0; i < pMessage.Count; i++)
@@ -184,9 +185,9 @@ public class BonusMake : MonoBehaviour
             }
         }
 
-        Debug.Log("matchTexts :" + matchTexts.Count);
+        //Debug.Log("matchTexts :" + matchTexts.Count);
         int selectText = Random.Range(0, matchTexts.Count);
-        Debug.Log("selectText :" + selectText);
+       // Debug.Log("selectText :" + selectText);
         bonusText.text = matchTexts[selectText];
         if(matchTexts.Count == 0)
         {
