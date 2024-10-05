@@ -73,6 +73,7 @@ public class SceneControll : MonoBehaviour
         WeightControll.rightSideWeight = 0;
         WeightControll.weightDifference = 0;
         CompareWeight.maxWeight = 0;
+        ObjectPlacer.bonusObjectName = null;
     }
 
     public void ToDescliption()

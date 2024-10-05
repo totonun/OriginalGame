@@ -34,7 +34,7 @@ public class ItemControll : MonoBehaviour
         itemController = this.gameObject;
         tc = gameManager.GetComponent<TimeControll>();
         itemMove = false;
-        timer = 1.5f;
+        timer = 3.0f;
         itemUsed = false;
         audioSource = this.gameObject.GetComponent<AudioSource>();
         if (!ReleaseItem.isItem)

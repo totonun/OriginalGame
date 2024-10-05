@@ -542,6 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 912087173}
+  messageText: {fileID: 23548003}
   timerStart: 0
 --- !u!4 &1411314563
 Transform:

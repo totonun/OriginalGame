@@ -74,7 +74,8 @@ public class WeightControll : MonoBehaviour
     void CompareWeight()
     {
         weightDifference = Mathf.Abs(rightSideWeight - leftSideWeight);
-        Debug.Log(rightSideWeight + " : " +  leftSideWeight);
+        //Debug.Log(rightSideWeight + " : " +  leftSideWeight);
+        Debug.Log("Difference: " + weightDifference);
     } 
 
     void TextInput(Text pText, int pWeight)

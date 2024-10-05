@@ -8,6 +8,7 @@ public class BeforeStartTimer : MonoBehaviour
 {
     private float timer;
     public Text timerText;
+    public Text messageText;
     public bool timerStart;
 
     // Start is called before the first frame update
@@ -16,6 +17,7 @@ public class BeforeStartTimer : MonoBehaviour
         timer = 5.5f;
         StartCoroutine(WaitAndExecute());
         timerStart = false;
+        messageText.enabled = true;
     }
 
     // Update is called once per frame
@@ -27,6 +29,7 @@ public class BeforeStartTimer : MonoBehaviour
             timerText.text = "Ç†Ç∆Å@" + timer.ToString("f0") + " ïb";
             if (timer <= 0.6f)
             {
+                messageText.enabled = false;
                 timerText.text = "ÇÕÇ∂Ç‹ÇÈÇÊÅI";
                 if(timer <= 0.0f)
                 {

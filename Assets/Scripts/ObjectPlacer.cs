@@ -29,9 +29,12 @@ public class ObjectPlacer : MonoBehaviour
 
     public int count;
 
+    public static string bonusObjectName;
+
     private void Awake()
     {
         weightController = GameObject.Find("WeightController");
+        canvas = GameObject.Find("Canvas");
         listSelect = Random.Range(1, 4);
 
         switch (listSelect)
@@ -75,7 +78,7 @@ public class ObjectPlacer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        selectBonusObject();
     }
 
     // Update is called once per frame
@@ -155,5 +158,12 @@ public class ObjectPlacer : MonoBehaviour
             array[randomIndex] = temp;
         }
     }
+
+    void selectBonusObject()
+    {
+        int rand = Random.Range(0, placedObjects.Length);
+        bonusObjectName = placedObjects[rand].name;
+    }
+
 
 }

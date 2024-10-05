@@ -103,23 +103,23 @@ public class DifficultySet : MonoBehaviour
         {
             case 0:
                 levelWord = "チュートリアル";
-                timer = 20;
+                timer = 15;
                 break;
             case 1:
                 levelWord = "ひよっこモード";
-                timer = 20;
+                timer = 15;
                 break;
             case 2:
                 levelWord = "ぼちぼちモード";
-                timer = 15;
+                timer = 10;
                 break;
             case 3:
                 levelWord = "チャレンジモード";
-                timer = 15;
+                timer = 10;
                 break;
             case 4:
                 levelWord = "あせあせモード";
-                timer = 10;
+                timer = 5;
                 break;
         }
     }

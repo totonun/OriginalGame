@@ -14,6 +14,10 @@ public class BonusMake : MonoBehaviour
     public List<string> bonusMessage2;
     public List<string> bonusMessage3;
 
+    public GameObject bonusObjectPlace;
+
+    private GameObject prefabObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -128,6 +132,7 @@ public class BonusMake : MonoBehaviour
 
         objectNames = ObjectPlacer.objectNames;
         searchWord(ObjectPlacer.listSelect);
+        //bonusObjectPlace = GameObject.Find("BonusObjectPlace");
     }
 
     // Update is called once per frame
@@ -138,8 +143,8 @@ public class BonusMake : MonoBehaviour
 
     public void searchWord(int num)
     {
-        int rand = Random.Range(0, objectNames.Length); //出てるオブジェクトの中からランダムで選出
-        Debug.Log("Num :" + num);
+        //int rand = Random.Range(0, objectNames.Length); //出てるオブジェクトの中からランダムで選出
+        //Debug.Log("Num :" + num);
         List<string> pMessage;
         pMessage = new List<string>();
 
@@ -155,21 +160,23 @@ public class BonusMake : MonoBehaviour
                 pMessage = new List<string>(bonusMessage3);
                 break;
             default:
-                //Debug.LogWarning("Unexpected value for num: " + num);  // エラーメッセージを表示
+                Debug.LogWarning("Unexpected value for num: " + num);  // エラーメッセージを表示
                 break;
         }
 
+        //Debug.Log("pMessage: " + pMessage.Count);
+
         List<string> matchTexts = new List<string>();
+
+        prefabObject = (GameObject)Resources.Load("Prefabs/" + ObjectPlacer.bonusObjectName);
+        GameObject bonusObject = (GameObject)Instantiate(prefabObject);
+        bonusObject.transform.SetParent(GameObject.Find("Canvas").transform, false);
+        bonusObject.transform.position = bonusObjectPlace.transform.position;
+        bonusObject.SetActive(true);
 
         for (int i = 0; i < pMessage.Count; i++)
         {
-            //Debug.Log(pMessage[i]);
-            //Debug.Log(objectNames[rand]);
-
-            //int strLength = pMessage[i].Length;
-
-
-            if (pMessage[i].Contains(objectNames[rand]))
+            if (pMessage[i].Contains(ObjectPlacer.bonusObjectName))
             {
                 bonusMessage =  pMessage[i];
                 //Debug.Log(bonusMessage);
@@ -177,8 +184,9 @@ public class BonusMake : MonoBehaviour
             }
         }
 
+        Debug.Log("matchTexts :" + matchTexts.Count);
         int selectText = Random.Range(0, matchTexts.Count);
-        //Debug.Log(selectText);
+        Debug.Log("selectText :" + selectText);
         bonusText.text = matchTexts[selectText];
         if(matchTexts.Count == 0)
         {
